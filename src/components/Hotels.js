@@ -22,7 +22,10 @@ const Hotels = () => {
 
     return(
 
+        <>
         <Link to="/Hotels">Hotel </Link>
+        <p>Map</p>
+        </>
         
     )
 }
