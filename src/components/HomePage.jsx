@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
-import logo from '../assets/logo.png'
+import Nav from './Nav';
+
 import headParallax from '../assets/head-parallax.png'
 import London from '../assets/london.png'
 import Paris from '../assets/paris.png'
@@ -14,34 +15,6 @@ const HeadSection = styled.div`
         padding : 0;
         box-sizing : border-box;
     }
-`
-
-const Header = styled.div `
-background-color : #0E3D71;
-height : 12vh;
-display : flex;
-justify-content : space-between;
-align-items : center;
-
-img{
-    width : 12%
-}
-
-nav{
-    display : flex;
-    justify-content : space-around;
-    width 30%;
-}
-
-a{
-    color : white;
-    font-size : larger;
-    text-decoration : none;
-}
-
-a:hover{
-    text-decoration : underline
-}
 `
 
 const HeadDiv = styled.div `
@@ -70,27 +43,24 @@ const HeadDiv = styled.div `
 `
 
 const CountriesSection = styled.div `
-    
+    height : 100vh;
+    border : 4px solid black;
+    background-color : white;
 `
-
 function HomePage() {
 
     return (
         <>
             <HeadSection>
-                <Header>
-                    <img src={logo} alt="img" />
-                    <nav>
-                        <a href="">Hotel</a>
-                        <a href="">Countries</a>
-                        <a href="">Rooms</a>
-                        <a href="">About</a>
-                    </nav>
-                </Header>
+                <Nav/>
                 <HeadDiv>
                     <h2><span>Travel Trip</span>, <br /> ton kiff en un click</h2>
                 </HeadDiv>
             </HeadSection>
+            
+            <CountriesSection>
+
+            </CountriesSection>
         </>
     )
 }

@@ -1,14 +1,19 @@
-import React from 'react';
-import Hotel from './components/Hotel';
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+
 import HomePage from "./components/HomePage";
+import Hotels from './components/Hotels'
+import Hotel from './components/Hotel';
 
 const App = () => {
   return (
-    <>
-    <div>
-      <Hotel/>
-    </div>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route exact path='/' element={HomePage}/>  
+        <Route exact path='/hotels:name' element={Hotels}/>  
+        <Route exact path='/hotel:id' element={Hotel}/>  
+      </Routes>     
+      <Hotel/> 
+    </BrowserRouter>
   );
 };
 
