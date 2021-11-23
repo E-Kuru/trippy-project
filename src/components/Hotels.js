@@ -1,4 +1,6 @@
 import {useEffect, useState} from 'react'
+import styled from 'styled-components';
+import { Link } from "react-router-dom";
 
 
 
@@ -12,13 +14,16 @@ const Hotels = () => {
 
     
     const getHotels = id => {
-        fetch (`https://trippy-konexio.herokuapp.com/api/home/`)
+        fetch (`https://trippy-konexio.herokuapp.com/api/hotels/city/paris`)
         .then(response => response.json())
         .then(data => setCity(data))
     }
     console.log(city)
+
     return(
-        <p>hello3</p>
+
+        <Link to="/Hotels">Hotel </Link>
+        
     )
 }
 
