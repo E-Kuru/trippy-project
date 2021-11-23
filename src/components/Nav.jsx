@@ -36,10 +36,10 @@ function Nav() {
             <Header>
                 <img src={logo} alt="img" />
                 <nav>
-                    <a href="">Hotel</a>
-                    <a href="">Countries</a>
-                    <a href="">Rooms</a>
-                    <a href="">About</a>
+                    <Link to='/'href="">Home</Link>
+                    <Link to='/'href="">Countries</Link>
+                    <Link to='/'href="">Rooms</Link>
+                    <Link to='/'href="">About</Link>
                 </nav>
             </Header>
 
