@@ -2,16 +2,16 @@ import {useEffect, useState} from 'react'
 
 
 
-const Countries = () => {
+const Hotels = () => {
     const [city, setCity] = useState(null)
     // const {isLogged}= useContext()
 
     useEffect(() => {
-        getCountries()
+        getHotels()
     }, [])
 
     
-    const getCountries = id => {
+    const getHotels = id => {
         fetch (`https://trippy-konexio.herokuapp.com/api/home/`)
         .then(response => response.json())
         .then(data => setCity(data))
@@ -23,4 +23,4 @@ const Countries = () => {
 }
 
 
-export default Countries
+export default Hotels

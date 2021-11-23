@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
-import Countries from './components/Countries'
+import Countries from './components/Hotels'
 
 export default class App extends Component {
   render() {
     return (
       <div>
-        <Countries>
+        <Hotels>
         <p>hello</p>
-        </Countries>
+        </Hotels>
       </div>
     )
   }
