@@ -1,13 +1,18 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 
-import Hotel from './components/Hotel';
 import HomePage from "./components/HomePage";
-import Countries from './components/Hotels'
+import Hotels from './components/Hotels'
+import Hotel from './components/Hotel';
 
 const App = () => {
   return (
-    <HomePage>
-      
-    </HomePage>
+    <BrowserRouter>
+      <Routes>
+        <Route exact path='/' element={HomePage}/>  
+        <Route exact path='/hotels:name' element={Hotels}/>  
+        <Route exact path='/hotel:id' element={Hotel}/>  
+      </Routes>      
+    </BrowserRouter>
   );
 };
 
