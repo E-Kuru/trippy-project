@@ -1,15 +1,14 @@
-import React, { Component } from 'react'
+
+import Hotel from './components/Hotel';
+import HomePage from "./components/HomePage";
 import Countries from './components/Hotels'
 
-export default class App extends Component {
-  render() {
-    return (
-      <div>
-        <Hotels>
-        <p>hello</p>
-        </Hotels>
-      </div>
-    )
-  }
-}
+const App = () => {
+  return (
+    <HomePage>
+      
+    </HomePage>
+  );
+};
 
+export default App;
