@@ -8,9 +8,9 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route exact path='/' element={HomePage}/>  
-        <Route exact path='/hotels:name' element={Hotels}/>  
-        <Route exact path='/hotel:id' element={Hotel}/>  
+        <Route exact path='/' element={<HomePage/>}/>  
+        <Route exact path='/hotels:name' element={<Hotels/>}/>  
+        <Route exact path='/hotel:id' element={<Hotel/>}/>  
       </Routes>      
     </BrowserRouter>
   );
