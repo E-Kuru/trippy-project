@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from "react-router-dom"
 
-import Nav from './Nav';
+import Nav from '../components/Nav';
 
 import headParallax from '../assets/head-parallax.png'
 import londonImg from '../assets/london.png'
