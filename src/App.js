@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Countries from './components/Hotels'
+import Hotels from './components/Hotels'
 
 export default class App extends Component {
   render() {
