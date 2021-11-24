@@ -42,6 +42,8 @@ const Hotels = () => {
         return <p>Chargement...</p>
     }
 
+    console.log(cities);
+
     return(
 
         
