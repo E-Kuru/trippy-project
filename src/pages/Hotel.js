@@ -5,7 +5,9 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
     body {
-        background-color: darkgray; 
+        background-image : url("https://img.freepik.com/vecteurs-libre/degrade-studio-chambre-vide-bleu_1035-18644.jpg?size=626&ext=jpg");
+        background-repeat: no-repeat;
+        background-size : 100% 100%;
     }
 `
 
@@ -23,10 +25,11 @@ const Infos = styled.div`
     flex-direction: column;
     align-items: center;
     border: 1px white solid;
-    box-shadow : 2px 2px 10px white;
+    box-shadow : 4px 2px 10px white;
+    border-radius : 5%
 `
 
-const Informations = styled.div `
+const Informations = styled.div`
     padding-bottom : 20px;
     border-bottom : 1px solid white;
 `
@@ -42,6 +45,7 @@ const Titles = styled.h3`
 
 const Paragraph = styled.p`
     color: white;
+    margin: 7px 7px;
     width: 100%;
     text-align: center;
 `
@@ -81,10 +85,11 @@ const Hotel = props => {
                         <Titles>Adresse de L'Hôtel (address) + Cité (city)</Titles>
                         <Titles>Pays (country) </Titles>
                         <Titles>Téléphone (phone)</Titles>
-                        <Titles>Prix de l'hôtel (price) + Nombre d'étoiles (stars)</Titles>
+                        <Titles><p>Prix de l'hôtel (price) + Nombre d'étoiles (stars)</p></Titles>
                     </Informations>
                     <H1> Commoditées (commodities) </H1>
-                    <Paragraph>"swimming pool",
+                    <Paragraph>
+                        "swimming pool",
                         "restaurant",
                         "gym",
                         "room service",
