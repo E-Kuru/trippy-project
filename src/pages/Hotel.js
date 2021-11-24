@@ -2,6 +2,13 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Nav from '../components/Nav'
 import { createGlobalStyle } from 'styled-components';
+import { useParams } from 'react-router'
+import { Carousel } from 'react-responsive-carousel'
+
+import 'react-responsive-carousel/lib/styles/carousel.min.css'
+import CityMap from '../components/CityMap';
+import { FaCity } from 'react-icons/fa';
+import HomePage from './HomePage';
 
 const GlobalStyle = createGlobalStyle`
     body {
@@ -20,18 +27,32 @@ const Row = styled.div`
 
 const Infos = styled.div`
     width : 30%;
-    margin: auto;
+    margin: 5% auto 0 auto ;
     display: flex;
     flex-direction: column;
     align-items: center;
     border: 1px white solid;
     box-shadow : 4px 2px 10px white;
-    border-radius : 5%
+    border-radius : 5%;
+    color : white;
+    ul{
+        height : 300px;
+        display : flex;
+        justify-content : space-around;
+        flex-wrap : wrap;
+        li{
+            width : 33%;
+            margin-right : 2%;
+        }
+    }
 `
 
 const Informations = styled.div`
     padding-bottom : 20px;
     border-bottom : 1px solid white;
+    width: 100%;
+    height: 100%;
+    text-align : center;
 `
 
 const H1 = styled.h1`
@@ -42,21 +63,13 @@ const Titles = styled.h3`
     margin: 10px 0;
     color: white;
 `
-
-const Paragraph = styled.p`
-    color: white;
-    margin: 7px 7px;
-    width: 100%;
-    text-align: center;
-`
-
 const ImageContainer = styled.div`
     margin-left: 30px;
     margin-top: 20px;
 `
 
 const HostelPicture = styled.img`
-height : 600px;
+height : 500px;
 width : 700px;
 border-radius : 5%;
 `
@@ -64,13 +77,20 @@ const Hotel = props => {
 
     const [hotel, setHotel] = useState([])
 
+    // const { id } = useParams()
+
     useEffect(() => {
-        fetch("https://trippy-konexio.herokuapp.com/api/hotels/")
+        fetch(`https://trippy-konexio.herokuapp.com/api/hotels/619b99fc53a95d1d32bf1539`)
             .then(res => res.json())
-            .then(res => setHotel(res.results))
+            .then(res => setHotel(res.result))
     }, [])
 
-    console.log(hotel.map(e => e));
+    console.log(hotel);
+
+    if(!hotel.commodities){
+        return <h1>Chargement</h1>
+    }
+
     return (
         <>
             <GlobalStyle />
@@ -81,46 +101,23 @@ const Hotel = props => {
                 </ImageContainer>
                 <Infos>
                     <Informations>
-                        <H1>Hôtel (name)</H1>
-                        <Titles>Adresse de L'Hôtel (address) + Cité (city)</Titles>
-                        <Titles>Pays (country) </Titles>
-                        <Titles>Téléphone (phone)</Titles>
-                        <Titles><p>Prix de l'hôtel (price) + Nombre d'étoiles (stars)</p></Titles>
+                        <H1>{hotel.name}</H1>
+                        <Titles>{hotel.address}</Titles>
+                        <Titles>{hotel.country} </Titles>
+                        <Titles>{hotel.phone}</Titles>
+                        <Titles>{hotel.price}€ {hotel.stars}</Titles>
                     </Informations>
-                    <H1> Commoditées (commodities) </H1>
-                    <Paragraph>
-                        "swimming pool",
-                        "restaurant",
-                        "gym",
-                        "room service",
-                        "wifi",
-                        "bar",
-                        "spa",
-                        "disabled access",
-                        "family",
-                        "wifi",
-                        "conciergerie",
-                        "non smoking",
-                        "shuttle",
-                        "dry cleaning",
-                        "multilingual staff",
-                        "breakfast included",
-                        "swimming pool",
-                        "swimming pool",
-                        "swimming pool",
-                        "meeting rooms",
-                        "meeting rooms",
-                        "meeting rooms",
-                        "dry cleaning",
-                        "wifi",
-                        "air conditioning",
-                        "minibar",
-                        "minibar",
-                        "disabled access",
-                        "family",
-                        "non smoking",
-                        "suites"
-                    </Paragraph>
+                    <H1> Commodities</H1>
+                    <ul>
+                    {hotel.commodities.map(e => (
+                        <li>{e}</li>
+                    ))}
+                    </ul>                     
+                    {/* {hotel.map(e => {
+                        <Carousel>
+                            <div>{e.}</div>
+                        </Carousel>
+                    })} */}
                 </Infos>
             </Row>
         </>
