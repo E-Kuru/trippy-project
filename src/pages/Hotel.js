@@ -105,7 +105,7 @@ const Hotel = props => {
                         <Titles>{hotel.address}</Titles>
                         <Titles>{hotel.country} </Titles>
                         <Titles>{hotel.phone}</Titles>
-                        <Titles>{hotel.price}€ {hotel.stars}</Titles>
+                        <Titles>{hotel.price}€ / {hotel.stars}*</Titles>
                     </Informations>
                     <H1> Commodities</H1>
                     <ul>
