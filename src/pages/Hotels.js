@@ -3,9 +3,13 @@ import { useParams } from 'react-router'
 import Hotel from "./Hotel"
 
 import Nav from '../components/Nav'
+import CityMap from '../components/CityMap'
+import Markers from '../components/Markers'
 
 
 const Hotels = () => {
+
+    const [myPosition, setMyPosition] = useState(null)
 
     const [cities, setCities] = useState([])
 
@@ -17,13 +21,32 @@ const Hotels = () => {
             .then(res => setCities(res))
     }, [])
 
-    console.log(cities.results);
+    if (!cities.center) {
+        return <p>Chargement...</p>
+    }
+
+    console.log(cities);
 
     return (
         <>
-            <Nav />
-            <p>{city}</p>
-            <Hotel />
+        <Nav/>
+        <CityMap 
+        center={cities.center}
+        >
+        
+        {cities.results.map( e => (
+            <Markers 
+            key={e.name + e.location}
+            color='#094BBC'
+            lat={e.location.lat}
+            lng={e.location.lon}
+            price={e.price}
+            />
+        ))}
+
+        </CityMap>
+        <p>{city}</p>
+
         </>
     )
 }
