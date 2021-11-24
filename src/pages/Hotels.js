@@ -22,11 +22,14 @@ const Hotels = () => {
       width: 300px;
       height: 550px;
       border: 1px solid #c3c3c3;
-      
+      float: left;
       `
       const Img = styled.img`
       height: 250px;
+      background-color: black;
       `
+
+
     const [cities, setCities] = useState([])
 
     const {city} = useParams()
@@ -59,7 +62,7 @@ const Hotels = () => {
                 </div>
                 
                 <p>{hotel.stars} ★</p>
-                <Img src={'https://www.lippi.fr/wp-content/uploads/2017/11/NoirCarbone.jpg'}/>
+                <Img key={hotel.pictures}/>
                 <p>{hotel.address}</p>
                 <p>{hotel.phone}</p>
                 <p>{hotel.city}</p>
@@ -81,7 +84,6 @@ const Hotels = () => {
         ))}
 
         </CityMap>
-        <p>{city}</p>
 
         </>
         
