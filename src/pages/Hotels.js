@@ -1,24 +1,28 @@
 import {useEffect, useState} from 'react'
+import { useParams } from 'react-router'
 
+import Nav from '../components/Nav'
 
 
 const Hotels = () => {
-    const [city, setCity] = useState(null)
-    // const {isLogged}= useContext()
 
-    useEffect(() => {
-        getHotels()
-    }, [])
+    const [cities, setCities] = useState([])
 
-    
-    const getHotels = id => {
-        fetch (`https://trippy-konexio.herokuapp.com/api/home/`)
-        .then(response => response.json())
-        .then(data => setCity(data))
-    }
-    console.log(city)
+    const {city} = useParams()
+
+    useEffect(() =>{
+        fetch (`https://trippy-konexio.herokuapp.com/api/hotels/city/${city}`)
+        .then(res => res.json())
+        .then(res => setCities(res))
+    },[])
+
+    console.log(cities.results);
+
     return(
-        <p>hello3</p>
+        <>
+        <Nav/>
+        <p>{city}</p>
+        </>
     )
 }
 

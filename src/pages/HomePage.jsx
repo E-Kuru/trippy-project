@@ -22,6 +22,7 @@ const HeadDiv = styled.div `
 
     height : 88vh;
     background : url('${headParallax}') no-repeat center/cover;
+    background-attachment: fixed;
     color : white;
 
     display : flex;
@@ -49,7 +50,6 @@ const CitiesSection = styled.div `
     display : flex;
     justify-content : center;
     flex-wrap : wrap;
-
 `
 
 const NewYork = styled.div `
@@ -152,35 +152,35 @@ function HomePage() {
                 <CitiesSection>
 
                         <NewYork>
-                            <Link to='hotels:new-york'>
+                            <Link to='hotels/new-york'>
                             <div></div>
                             <h3>New York</h3>
                             </Link>
                         </NewYork>
 
                         <Rome>
-                            <Link to='hotels:rome'>
+                            <Link to='hotels/rome'>
                             <div></div>
                             <h3>Rome</h3>
                             </Link>
                         </Rome>
 
                         <London>
-                            <Link to='hotels:london'>
+                            <Link to='hotels/london'>
                             <div></div>
                             <h3>London</h3>
                             </Link>
                         </London>
 
                         <Paris>
-                            <Link to='hotels:paris'>
+                            <Link to='hotels/paris'>
                             <div></div>
                             <h3>Paris</h3>
                             </Link>
                         </Paris>
 
                         <Nice>
-                            <Link to='hotels:nice'>
+                            <Link to='hotels/nice'>
                             <div></div>
                             <h3>Nice</h3>
                             </Link>
