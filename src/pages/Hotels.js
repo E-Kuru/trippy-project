@@ -24,7 +24,6 @@ const Hotels = () => {
       border: 1px solid #c3c3c3;
       
       `
-
       const Img = styled.img`
       height: 250px;
       `
@@ -35,22 +34,22 @@ const Hotels = () => {
     useEffect( () => {
         fetch (`https://trippy-konexio.herokuapp.com/api/hotels/city/${city}`)
         .then(res => res.json())
-        .then(res => setCities(res.results))
+        .then(res => setCities(res))
     },[])
+
+    console.log(cities);
 
     if (!cities.center) {
         return <p>Chargement...</p>
     }
 
     return(
-
-        
         <>
         
         <Nav/>
         <h1> Hotels List</h1>
         
-        {cities.map(hotel =>
+        {cities.results.map(hotel =>
            
             <Card key={hotel.name}>
                 <div className="title">
