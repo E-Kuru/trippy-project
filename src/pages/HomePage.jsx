@@ -153,7 +153,7 @@ function HomePage() {
                 <CitiesSection>
 
                         <NewYork>
-                            <Link to='hotels/:new-york'>
+                            <Link to='hotels/new-york'>
                             <div></div>
                             <h3>New York</h3>
                             </Link>
