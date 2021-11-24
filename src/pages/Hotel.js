@@ -1,33 +1,60 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import Nav from './Nav';
+import Nav from '../components/Nav'
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
     body {
-        background-color: darkblue;
+        background-color: darkgray; 
     }
 `
 
 const Row = styled.div`
     display: flex;
-    flex-direction: row; 
-    justify-content: space-between
+    flex-direction: row;
+    align-items: center;
+
 `
 
-const Justified = styled.div`
-    display: flex; 
-    flex-direction : column;
-    padding-right: 40px;
+const Infos = styled.div`
+    width : 30%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px white solid;
+    box-shadow : 2px 2px 10px white;
+`
+
+const Informations = styled.div `
+    padding-bottom : 20px;
+    border-bottom : 1px solid white;
+`
+
+const H1 = styled.h1`
+    color: white;
 `
 
 const Titles = styled.h3`
-    margin: 3px 0
+    margin: 10px 0;
+    color: white;
+`
+
+const Paragraph = styled.p`
+    color: white;
+    width: 100%;
+    text-align: center;
+`
+
+const ImageContainer = styled.div`
+    margin-left: 30px;
+    margin-top: 20px;
 `
 
 const HostelPicture = styled.img`
-height : 300px;
-width : 300px;
+height : 600px;
+width : 700px;
+border-radius : 5%;
 `
 const Hotel = props => {
 
@@ -45,17 +72,19 @@ const Hotel = props => {
             <GlobalStyle />
             <Nav />
             <Row>
-                <Justified>
+                <ImageContainer>
                     <HostelPicture src="https://www.parisinfo.com/var/otcp/sites/images/media/1.-photos/03.-hebergement-630-x-405/hotel-enseigne-neon-630x405-c-thinkstock/31513-1-fre-FR/Hotel-enseigne-neon-630x405-C-Thinkstock.jpg" alt="Hotel" />
-                    <h1>Hôtel (name)</h1>
-                    <Titles>Adresse de L'Hôtel (address) + Cité (city)</Titles>
-                    <Titles>Pays (country) </Titles>
-                    <Titles>Téléphone (phone)</Titles>
-                    <Titles>Prix de l'hôtel (price) + Nombre d'étoiles (stars)</Titles>
-                </Justified>
-                <div>
-                    <p> Commoditées (commodities) </p>
-                    <p>"swimming pool",
+                </ImageContainer>
+                <Infos>
+                    <Informations>
+                        <H1>Hôtel (name)</H1>
+                        <Titles>Adresse de L'Hôtel (address) + Cité (city)</Titles>
+                        <Titles>Pays (country) </Titles>
+                        <Titles>Téléphone (phone)</Titles>
+                        <Titles>Prix de l'hôtel (price) + Nombre d'étoiles (stars)</Titles>
+                    </Informations>
+                    <H1> Commoditées (commodities) </H1>
+                    <Paragraph>"swimming pool",
                         "restaurant",
                         "gym",
                         "room service",
@@ -86,8 +115,8 @@ const Hotel = props => {
                         "family",
                         "non smoking",
                         "suites"
-                    </p>
-                </div>
+                    </Paragraph>
+                </Infos>
             </Row>
         </>
     );
