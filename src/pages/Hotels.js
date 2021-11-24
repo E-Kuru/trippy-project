@@ -3,6 +3,8 @@ import { useParams } from 'react-router'
 import styled from 'styled-components';
 
 import Nav from '../components/Nav'
+import CityMap from '../components/CityMap'
+import Markers from '../components/Markers'
 
 
 const Hotels = () => {
@@ -25,11 +27,7 @@ const Hotels = () => {
 
       const Img = styled.img`
       height: 250px;
-      
-
       `
-     
-    
     const [cities, setCities] = useState([])
 
     const {city} = useParams()
@@ -40,8 +38,10 @@ const Hotels = () => {
         .then(res => setCities(res.results))
     },[])
 
-    console.log(cities);
-    console.log(city);
+    if (!cities.center) {
+        return <p>Chargement...</p>
+    }
+
     return(
 
         
@@ -52,28 +52,36 @@ const Hotels = () => {
         
         {cities.map(hotel =>
            
-        <Card key={hotel.name}>
-
-            {/* <img src={hotel.pictures}/> */}
-            <div className="title">
-            <h3>{hotel.name}</h3>
-            </div>
-            
-            <p>{hotel.stars} ★</p>
-            <Img src={'https://www.lippi.fr/wp-content/uploads/2017/11/NoirCarbone.jpg'}/>
-            <p>{hotel.address}</p>
-            <p>{hotel.phone}</p>
-            <p>{hotel.city}</p>
-            <p>{hotel.price}€</p>
-            
- 
-       
-        </Card>
-            )}
+            <Card key={hotel.name}>
+                <div className="title">
+                <h3>{hotel.name}</h3>
+                </div>
+                
+                <p>{hotel.stars} ★</p>
+                <Img src={'https://www.lippi.fr/wp-content/uploads/2017/11/NoirCarbone.jpg'}/>
+                <p>{hotel.address}</p>
+                <p>{hotel.phone}</p>
+                <p>{hotel.city}</p>
+                <p>{hotel.price}€</p>
+            </Card>
+        )}
+        <CityMap 
+        center={cities.center}
+        >
         
-            
+        {cities.results.map( e => (
+            <Markers 
+            key={e.name + e.location}
+            color='#094BBC'
+            lat={e.location.lat}
+            lng={e.location.lon}
+            price={e.price}
+            />
+        ))}
 
+        </CityMap>
         <p>{city}</p>
+
         </>
         
     );
