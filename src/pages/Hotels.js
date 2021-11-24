@@ -5,26 +5,22 @@ import Nav from '../components/Nav'
 
 
 const Hotels = () => {
-    const [cities, setCities] = useState(null)
-    // const {isLogged}= useContext()
 
-    // useEffect(() => {
-    //     getHotels()
-    // }, [])
+    const [cities, setCities] = useState(null)
 
     const {city} = useParams()
 
-    console.log(city);
-
     const getHotels = id => {
-        fetch (`https://trippy-konexio.herokuapp.com/api/home/`)
-        .then(response => response.json())
-        .then(data => setCities(data))
+        fetch (`https://trippy-konexio.herokuapp.com/api/hotels/city/${city}`)
+        .then(res => res.json())
+        .then(res => setCities(res))
     }
+
+    console.log(cities);
     return(
         <>
         <Nav/>
-        <p>hello3</p>
+        <p>{city}</p>
         </>
     )
 }
