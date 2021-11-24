@@ -77,7 +77,6 @@ const Rome = styled.div `
     // border : 2px solid black;
     div{
         background : url('${romeImg}') no-repeat center/cover;
-        background : fixed;
         height : 80%;
     }
     a{
