@@ -20,24 +20,18 @@ const Hotels = () => {
       border: 1px solid #c3c3c3;
       `
 
-      const Img = styled.img`
-      height: 250px;
-
-      `
-     
-    
     const [cities, setCities] = useState([])
 
     const {city} = useParams()
 
-    useEffect( () => {
+    useEffect(() =>{
         fetch (`https://trippy-konexio.herokuapp.com/api/hotels/city/${city}`)
         .then(res => res.json())
-        .then(res => setCities(res.results))
+        .then(res => setCities(res))
     },[])
 
-    console.log(cities);
-    console.log(city);
+    console.log(cities.results);
+
     return(
 
         
