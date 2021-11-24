@@ -1,31 +1,41 @@
+import React from 'react'
 import {useEffect, useState} from 'react'
-import styled from 'styled-components';
-import { Link } from "react-router-dom";
+import Nav from './Nav';
+
 
 
 
 const Hotels = () => {
-    const [city, setCity] = useState(null)
-    // const {isLogged}= useContext()
+    const [city, setCity] = useState([])
 
     useEffect(() => {
-        getHotels()
-    }, [])
 
-    
-    const getHotels = id => {
         fetch (`https://trippy-konexio.herokuapp.com/api/hotels/city/paris`)
         .then(response => response.json())
         .then(data => setCity(data))
-    }
+    }, [])
+
     console.log(city)
 
     return(
 
-        <>
-        <Link to="/Hotels">Hotel </Link>
-        <p>Map</p>
-        </>
+        <><h1>Hotels</h1>
+        <Nav />
+        {city.map(hotel =>
+            <div key={hotel.name}>
+            <img src="/img/hotels/229619_1.jpg" alt={hotel.name}/>
+            <p>{hotel.name}</p>
+            <p>{hotel.address}</p>
+            <p>{hotel.phone}</p>
+            <p>{hotel.stars}</p>
+            <p>{hotel.city}</p>
+
+            </div>
+
+        
+        )}
+     </>
+        
         
     )
 }
