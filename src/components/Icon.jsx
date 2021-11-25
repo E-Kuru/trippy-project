@@ -9,27 +9,33 @@ import {BiBed} from 'react-icons/bi';
 function Icon (props) {
 
 
+const Iconics = styled.div`
+   padding-right: 10px;
 
+`
 
+function Icon(props) {
     return (
-      <>
-        {props.comodity === "wifi" && <AiOutlineWifi/>}
-        {props.comodity === "swimming pool" && <FaSwimmingPool/>}
-        {props.comodity === "room service" && <MdRoomService/>}
-        {props.comodity === "bar" &&  <FaCocktail/>}
-        {props.comodity === "spa" && <FaSpa/>}
-        {props.comodity === "gym" && <CgGym/>}
-        {props.comodity === "disabled access" && <FaWheelchair/>}
-        {props.comodity === "conciergerie" && <FaSuitcase/>}
-        {props.comodity === "non smoking" && <MdOutlineSmokeFree/>}
-        {props.comodity === "dry cleaning" && <GiWashingMachine/>}
-        {props.comodity === "multilingual staff" && <MdOutlineLanguage/>}
-        {props.comodity === "breakfast included" &&  <GiCroissant/>}
-        {props.comodity === "air conditioning" &&  <GiComputerFan/>}
-        {props.comodity === "minibar" && <RiFridgeFill/>}
-        {props.comodity === "suites" &&  <BiBed/>}
-        {props.comodity === "family" &&  <MdFamilyRestroom/>}
-      </>
+        <>
+            <Iconics>
+                {props.comodity === "wifi" && <AiOutlineWifi />}
+                {props.comodity === "swimming pool" && <FaSwimmingPool />}
+                {props.comodity === "room service" && <MdRoomService />}
+                {props.comodity === "bar" && <FaCocktail />}
+                {props.comodity === "spa" && <FaSpa />}
+                {props.comodity === "gym" && <CgGym />}
+                {props.comodity === "disabled access" && <FaWheelchair />}
+                {props.comodity === "conciergerie" && <FaSuitcase />}
+                {props.comodity === "non smoking" && <MdOutlineSmokeFree />}
+                {props.comodity === "dry cleaning" && <GiWashingMachine />}
+                {props.comodity === "multilingual staff" && <MdOutlineLanguage />}
+                {props.comodity === "breakfast included" && <GiCroissant />}
+                {props.comodity === "air conditioning" && <GiComputerFan />}
+                {props.comodity === "minibar" && <RiFridgeFill />}
+                {props.comodity === "suites" && <BiBed />}
+                {props.comodity === "family" && <MdFamilyRestroom />}
+            </Iconics>
+        </>
     )
 }
 
