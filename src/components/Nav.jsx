@@ -40,7 +40,7 @@ function Nav() {
                     <Link to='/'href="">Home</Link>
                     <Link to='/'href="">Countries</Link>
                     <Link to='/'href="">Rooms</Link>
-                    <Link to='/'href="">About</Link>
+                    <Link to='/About'>About</Link>
                 </nav>
             </Header>
 
