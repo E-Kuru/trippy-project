@@ -8,14 +8,14 @@ import Markers from '../components/Markers'
 
 
 const Hotels = () => {
-    
+   
     const Card = styled.div`
     
-    font-size: 1em;
+      font-size: 1em;
       border-radius: 3px;
       color: black ;
       font-weight: bold;
-      margin: 10px;
+      margin: 20px;
       margin-bottom: 15px;
       padding: 15px;
       text-align: center;
@@ -23,6 +23,9 @@ const Hotels = () => {
       height: 550px;
       border: 1px solid #c3c3c3;
       float: left;
+      `
+      const Title = styled.div`
+      color: black;
       `
       const Img = styled.img`
       height: 250px;
@@ -33,6 +36,8 @@ const Hotels = () => {
     const [cities, setCities] = useState([])
 
     const {city} = useParams()
+
+
 
     useEffect( () => {
         fetch (`https://trippy-konexio.herokuapp.com/api/hotels/city/${city}`)
@@ -50,41 +55,38 @@ const Hotels = () => {
 
     return(
         <>
-        
-        <Nav/>
-        <h1> Hotels List</h1>
-        
-        {cities.results.map(hotel =>
-           
-            <Card key={hotel.name}>
-                <div className="title">
-                <h3>{hotel.name}</h3>
+            <Nav/>
+
+            <h1> Hotels List</h1>
+
+            <div style={{ display: "flex"}}>
+                <div style={{width : "50%"}}>
+                    {cities.results.map(hotel =>
+                        <Card key={hotel.name}>
+                            <Title><h3>{hotel.name}</h3>
+                            <div><p>{hotel.stars} ★</p></div>
+                            <div>{hotel.images}</div>
+                            <div><Img key={hotel.pictures}/> </div>
+                            <div><p>{hotel.address}</p></div>
+                            <div><p>{hotel.phone}</p></div>
+                            <div><p>{hotel.price}€</p></div> 
+                            </Title>   
+                        </Card>
+                    )}
                 </div>
+                <CityMap center={cities.center}>
+                    {cities.results.map( e => (
+                        <Markers 
+                        key={e.name + e.location}
+                        color='#094BBC'
+                        lat={e.location.lat}
+                        lng={e.location.lon}
+                        price={e.price}
+                        />
+                    ))}
+                </CityMap>
                 
-                <p>{hotel.stars} ★</p>
-                <Img key={hotel.pictures}/>
-                <p>{hotel.address}</p>
-                <p>{hotel.phone}</p>
-                <p>{hotel.city}</p>
-                <p>{hotel.price}€</p>
-            </Card>
-        )}
-        <CityMap 
-        center={cities.center}
-        >
-        
-        {cities.results.map( e => (
-            <Markers 
-            key={e.name + e.location}
-            color='#094BBC'
-            lat={e.location.lat}
-            lng={e.location.lon}
-            price={e.price}
-            />
-        ))}
-
-        </CityMap>
-
+            </div>
         </>
         
     );
