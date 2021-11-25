@@ -8,6 +8,8 @@ const MarkerContainer = styled.div `
   position: relative;
 `
 const P = styled.p `
+  border-radius : 50px;
+  width : 50px;
   padding : 4%;
   text-align : center;
   background-color : rgba(0,0,0,0.6);
@@ -15,8 +17,6 @@ const P = styled.p `
   color : white;
 `
 const Marker = props => {
-
-  console.log(props.price);
 
   return (
     <MarkerContainer>
