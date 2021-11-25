@@ -1,6 +1,7 @@
 import Nav from "./Nav"
+import styled from 'styled-components';
 
-const About = styled.div`
+const TextAbout = styled.div`
 h4{
     font-size: 10px;
 }
@@ -10,7 +11,7 @@ function About() {
     return (
         <div>
             <Nav/>
-            <About>
+            <TextAbout>
             <h1>À propos de nous</h1>
 <h4>Bienvenue sur TravelTrib.com</h4>
 <p>
@@ -21,7 +22,7 @@ function About() {
     ainsi que des hébergements indépendants dans plus de centaines de milliers d'établissements dans le monde.
     La société offre une source d'achat unique pour les prix, les équipements et la disponibilité des hôtels.
 </p>
-</About>
+</TextAbout>
         </div>
     )
 }
