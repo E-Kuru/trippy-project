@@ -83,16 +83,40 @@ const Hotels = () => {
         justify-content : center;
         align-items : center;
       `
+      const ButtonGroup = styled.div`
+      display: flex;
+      justify-content: center;
 
-    const [hotels, sethotels] = useState([])
+      button{
+        background-color: #0d3d70;
+        color: white;
+        font-size: 20px;
+        padding: 10px 20px;
+        border-radius: 3px;
+        margin: 10px;
+        cursor: pointer;
+        margin-right: 5px;  
+      }
+    
+    `
+
+    // this.handleFetchClick = thishandleFetchClick.bind(this);
+
+    const [hotels, setHotels] = useState([])
 
     useEffect( () => {
         fetch (`https://trippy-konexio.herokuapp.com/api/hotels/city/${city}?page=1`)
         .then(res => res.json())
-        .then(res => sethotels(res))
+        .then(res => setHotels(res))
     },[])
 
     console.log(hotels);
+
+    const handleFetchClick = (page) => {
+        fetch (`https://trippy-konexio.herokuapp.com/api/hotels/city/${city}?page=${page}`)
+        .then(res => res.json())
+        .then(res => setHotels(res))
+    }
 
     if (!hotels.center) {
         return <p>Chargement...</p>
@@ -129,6 +153,15 @@ const Hotels = () => {
                         </Card>
                     )}
                 </AllCards>
+                
+                
+            <ButtonGroup>
+                    <button onClick={() => handleFetchClick(1)}>1</button>
+                    <button onClick={() => handleFetchClick(2)}>2</button>
+                    <button onClick={() => handleFetchClick(3)}>3</button>
+                    <button onClick={() => handleFetchClick(4)}>4</button>
+            </ButtonGroup>
+                    
 
             <MapContainer>
                 <CityMap center={hotels.center}>

@@ -16,8 +16,6 @@ const P = styled.p `
 `
 const Marker = props => {
 
-  console.log(props.price);
-
   return (
     <MarkerContainer>
 
