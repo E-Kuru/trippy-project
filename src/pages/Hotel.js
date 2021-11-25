@@ -5,6 +5,12 @@ import { createGlobalStyle } from 'styled-components';
 import { useParams } from 'react-router'
 import { Carousel } from 'react-responsive-carousel'
 
+import london from '../assets/london.png'
+import paris from '../assets/paris.png'
+import nice from '../assets/nice.png'
+import rome from '../assets/rome.png'
+import newYork from '../assets/new-york.png'
+
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import CityMap from '../components/CityMap';
 import { FaCity } from 'react-icons/fa';
@@ -12,9 +18,10 @@ import HomePage from './HomePage';
 
 const GlobalStyle = createGlobalStyle`
     body {
-        background-image : url("https://img.freepik.com/vecteurs-libre/degrade-studio-chambre-vide-bleu_1035-18644.jpg?size=626&ext=jpg");
+        background-image: url("https://cdn.radiofrance.fr/s3/cruiser-production/2020/11/bcbd126f-f452-4e07-bb89-9d3b8b74db4b/600x337_bleu.jpg");
         background-repeat: no-repeat;
         background-size : 100% 100%;
+        height: 100%;
     }
 `
 
@@ -27,14 +34,14 @@ const Row = styled.div`
 
 const Infos = styled.div`
     width : 30%;
-    margin: 5% auto 0 auto ;
+    margin: 2% auto 0 auto ;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px white solid;
-    box-shadow : 4px 2px 10px white;
+    border: 1px black solid;
+    box-shadow : 4px 2px 10px black;
     border-radius : 5%;
-    color : white;
+    color : black;
     ul{
         height : 300px;
         display : flex;
@@ -49,19 +56,19 @@ const Infos = styled.div`
 
 const Informations = styled.div`
     padding-bottom : 20px;
-    border-bottom : 1px solid white;
+    border-bottom : 1px solid black;
     width: 100%;
     height: 100%;
     text-align : center;
 `
 
 const H1 = styled.h1`
-    color: white;
+    color: black;
 `
 
 const Titles = styled.h3`
     margin: 10px 0;
-    color: white;
+    color: black;
 `
 const ImageContainer = styled.div`
     margin-left: 30px;
@@ -87,7 +94,7 @@ const Hotel = props => {
 
     console.log(hotel);
 
-    if(!hotel.commodities){
+    if (!hotel.commodities) {
         return <h1>Chargement</h1>
     }
 
@@ -109,10 +116,10 @@ const Hotel = props => {
                     </Informations>
                     <H1> Commodities</H1>
                     <ul>
-                    {hotel.commodities.map(e => (
-                        <li>{e}</li>
-                    ))}
-                    </ul>                     
+                        {hotel.commodities.map(e => (
+                            <li>{e}</li>
+                        ))}
+                    </ul>
                     {/* {hotel.map(e => {
                         <Carousel>
                             <div>{e.}</div>
