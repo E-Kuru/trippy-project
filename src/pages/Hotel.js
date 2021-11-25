@@ -11,6 +11,8 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import CityMap from '../components/CityMap';
 import { FaCity } from 'react-icons/fa';
 import HomePage from './HomePage';
+import Icon from '../components/Icon';
+
 
 const GlobalStyle = createGlobalStyle`
     body {
@@ -24,8 +26,7 @@ const GlobalStyle = createGlobalStyle`
 const Row = styled.div`
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
-
+    align-items: center;
 `
 
 const Infos = styled.div`
@@ -34,21 +35,10 @@ const Infos = styled.div`
     margin: 2% auto 0 auto ;
     display: flex;
     flex-direction: column;
-    align-items: center;
     border: 1px white solid;
     box-shadow : 4px 2px 3px white;
     border-radius : 5%;
     color : white;
-    ul{
-        height : 300px;
-        display : flex;
-        justify-content : space-around;
-        flex-wrap : wrap;
-        li{
-            width : 33%;
-            margin-right : 2%;
-        }
-    }
 `
 
 const Informations = styled.div`
@@ -61,6 +51,8 @@ const Informations = styled.div`
 
 const H1 = styled.h1`
     color: white;
+    text-align: center;
+
 `
 
 const Titles = styled.h3`
@@ -79,16 +71,48 @@ border-radius : 5%;
 margin-top: 30px;
 `
 
-const PriceStar = styled.div`
+const Comm = styled.div`
+display: flex;
+flex-direction:row;
+flex-wrap: wrap;
+align-items: center;
+`
+
+const UlContainer = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    flew-wrap: wrap;
     width: 100%;
     justify-content: center;
-    align-items:center;
+
+    div {
+        display: flex;
+        flex-direction : row;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-right: 10px;
+    }
+    ul {
+        padding-left: 20px;
+    }
 `
+
+const IconAlign = styled.ul`
+    padding: 5px;
+    
+`
+
+const IconItem = styled.div`
+    
+    
+`
+
+
 const Hotel = props => {
 
     const [hotel, setHotel] = useState([])
+
+
 
     // const { id } = useParams()
 
@@ -124,11 +148,22 @@ const Hotel = props => {
                         <Titles><Stars hotel={hotel} /></Titles>
                     </Informations>
                     <H1> Commodities</H1>
-                    <ul>
-                        {hotel.commodities.map(e => (
-                            <li>{e}</li>
-                        ))}
-                    </ul>
+                    <UlContainer>
+                        <div>
+                            {hotel.commodities.filter(function (ele, pos) {
+                                return hotel.commodities.indexOf(ele) == pos;
+                            }).map(e => (
+                                <Comm>
+                                    <IconAlign>
+                                        <Icon comodity={e}></Icon>
+                                    </IconAlign>
+                                    <IconItem>
+                                        <p>{e}</p>
+                                    </IconItem>
+                                </Comm>
+                            ))}
+                        </div>
+                    </UlContainer>
                     {/* {hotel.map(e => {
                         <Carousel>
                             <div>{e.}</div>
