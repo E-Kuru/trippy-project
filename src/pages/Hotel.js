@@ -99,10 +99,10 @@ const Hotel = props => {
 
     const [hotel, setHotel] = useState([])
 
-    // const { id } = useParams()
+    const { id } = useParams()
 
     useEffect(() => {
-        fetch(`https://trippy-konexio.herokuapp.com/api/hotels/619b99fc53a95d1d32bf1539`)
+        fetch(`https://trippy-konexio.herokuapp.com/api/hotels/${id}`)
             .then(res => res.json())
             .then(res => setHotel(res.result))
     }, [])
