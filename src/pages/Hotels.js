@@ -118,9 +118,7 @@ const Hotels = () => {
       }
     
     `
-
-    // this.handleFetchClick = thishandleFetchClick.bind(this);
-
+    
     const [hotels, setHotels] = useState([])
 
     useEffect( () => {
