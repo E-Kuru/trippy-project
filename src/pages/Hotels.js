@@ -48,36 +48,50 @@ const Hotels = () => {
 `  
 
     const H1 = styled.h1 `
+        margin-bottom : 2%; 
         text-align : center;
     `
 
     const AllCards = styled.div`
-        // border : 4px solid black;
+        direction : rtl;
+        border-bottom : 1px solid black;
+        border-top : 1px solid black;
+        height : 80vh;
+        overflow : scroll;
         display : flex;
         flex-wrap : wrap;
         justify-content : space-around;
+        background-color : #0E3D71;
+        ::-webkit-scrollbar {
+            direction:ltr;
+            height: 4px;
+            width: 20px;
+          }
+        ::-webkit-scrollbar-thumb:vertical{
+            background: #ffff;
+            border-radius: 10px;
+        }
     `
 
     const Card = styled.div`
     
+    background-color : #ffff;
+    
       border-radius: 3px;
       font-weight: bold;
-      margin-bottom: 1%;
+      margin: 2% 0;
       text-align: center;
       width: 40%;
-      height: 280px;
-      border: 1px solid #c3c3c3;
+      height: 400px;
+      img{
+          width : 80%;
+          height : 210px;
+      }
       `
 
       const Title = styled.div`
       color: black;
       `
-      const Img = styled.img`
-      height: 20%;
-      background-color: black;
-      `
-    const [cities, setCities] = useState([])
-
       const MapContainer = styled.div`
         margin-bottom : 2%;
         height : 90vh;
@@ -107,7 +121,7 @@ const Hotels = () => {
     const [hotels, setHotels] = useState([])
 
     useEffect( () => {
-        fetch (`https://trippy-konexio.herokuapp.com/api/hotels/city/${city}?page=1`)
+        fetch (`https://trippy-konexio.herokuapp.com/api/hotels/city/${city}?page=3`)
         .then(res => res.json())
         .then(res => setHotels(res))
     },[])
@@ -139,18 +153,16 @@ const Hotels = () => {
                     </h2>
             </HeadDiv>
 
-
             <H1> Hotels List</H1>
+
                 <AllCards>
                     {hotels.results.map(hotel =>
                         <Card key={hotel.name}>
                             <Title><h3>{hotel.name}</h3>
-                            <div><p>{hotel.stars} ★</p></div>
-                            <div>{hotel.images}</div>
-                            <div><Img key={hotel.pictures}/> </div>
-                            <div><p>{hotel.address}</p></div>
-                            <div><p>{hotel.phone}</p></div>
-                            <div><p>{hotel.price}€</p></div> 
+                            <p>{hotel.stars} ★</p>
+                             <img src={london} alt="img" />
+                            <p>{hotel.address}</p>
+                            <p>{hotel.price}€</p> 
                             </Title>   
                         </Card>
                     )}
