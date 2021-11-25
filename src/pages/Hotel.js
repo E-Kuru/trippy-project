@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Nav from '../components/Nav'
-import { createGlobalStyle } from 'styled-components';
-import { useParams } from 'react-router'
-import { Carousel } from 'react-responsive-carousel'
-import stars from "../assets/star.png"
-import Stars from '../components/Stars';
 
-import 'react-responsive-carousel/lib/styles/carousel.min.css'
-import CityMap from '../components/CityMap';
-import { FaCity } from 'react-icons/fa';
 import HomePage from './HomePage';
+import Stars from '../components/Stars';
+import stars from "../assets/star.png"
+import CityMap from '../components/CityMap';
+import { useParams } from 'react-router'
+
+import { createGlobalStyle } from 'styled-components';
+
+import { FaCity } from 'react-icons/fa';
 import Icon from '../components/Icon';
 
 
@@ -19,14 +19,14 @@ const GlobalStyle = createGlobalStyle`
         background-image: url("https://cdn.radiofrance.fr/s3/cruiser-production/2020/11/bcbd126f-f452-4e07-bb89-9d3b8b74db4b/600x337_bleu.jpg");
         background-repeat: no-repeat;
         background-size : 100% 100%;
-        height: 100%;
+        height: 100vh;
+        background-attachment: fixed;
     }
 `
 
 const Row = styled.div`
     display: flex;
     flex-direction: row;
-    align-items: center;
 `
 
 const Infos = styled.div`
@@ -60,15 +60,16 @@ const Titles = styled.h3`
     color: white;
 `
 const ImageContainer = styled.div`
+    height: 100%;
     margin-left: 30px;
     margin-top: 0;
 `
 
 const HostelPicture = styled.img`
-height : 600px;
+height : 500px;
 width : 700px;
 border-radius : 5%;
-margin-top: 30px;
+margin: 30px 0 0 40px;
 `
 
 const Comm = styled.div`
@@ -107,7 +108,6 @@ const IconItem = styled.div`
     
 `
 
-
 const Hotel = props => {
 
     const [hotel, setHotel] = useState([])
@@ -137,6 +137,7 @@ const Hotel = props => {
             <Row>
                 <ImageContainer>
                     <HostelPicture src="https://www.orquebleue.fr/wp-content/uploads/2018/06/IMG_3479-1024x1024.jpg" alt="Hotel" />
+
                 </ImageContainer>
                 <Infos>
                     <Informations>
@@ -151,7 +152,7 @@ const Hotel = props => {
                     <UlContainer>
                         <div>
                             {hotel.commodities.filter(function (ele, pos) {
-                                return hotel.commodities.indexOf(ele) == pos;
+                                return hotel.commodities.indexOf(ele) === pos;
                             }).map(e => (
                                 <Comm>
                                     <IconAlign>
@@ -164,11 +165,6 @@ const Hotel = props => {
                             ))}
                         </div>
                     </UlContainer>
-                    {/* {hotel.map(e => {
-                        <Carousel>
-                            <div>{e.}</div>
-                        </Carousel>
-                    })} */}
                 </Infos>
             </Row>
         </>
