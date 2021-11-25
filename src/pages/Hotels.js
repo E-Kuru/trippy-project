@@ -1,7 +1,6 @@
 import {useEffect, useState} from 'react'
 import { useParams } from 'react-router'
 import styled from 'styled-components';
-
 import Nav from '../components/Nav'
 import CityMap from '../components/CityMap'
 import Markers from '../components/Markers'
@@ -53,7 +52,7 @@ const Hotels = () => {
     return(
         <>
             <Nav/>
-
+            
             <h1> Hotels List</h1>
 
             <div style={{ display: "flex"}}>
