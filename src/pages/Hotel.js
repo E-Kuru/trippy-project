@@ -4,12 +4,8 @@ import Nav from '../components/Nav'
 import { createGlobalStyle } from 'styled-components';
 import { useParams } from 'react-router'
 import { Carousel } from 'react-responsive-carousel'
-
-import london from '../assets/london.png'
-import paris from '../assets/paris.png'
-import nice from '../assets/nice.png'
-import rome from '../assets/rome.png'
-import newYork from '../assets/new-york.png'
+import stars from "../assets/star.png"
+import Stars from '../components/Stars';
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import CityMap from '../components/CityMap';
@@ -33,15 +29,16 @@ const Row = styled.div`
 `
 
 const Infos = styled.div`
+    background-color: #011b4f;
     width : 30%;
     margin: 2% auto 0 auto ;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px black solid;
-    box-shadow : 4px 2px 10px black;
+    border: 1px white solid;
+    box-shadow : 4px 2px 3px white;
     border-radius : 5%;
-    color : black;
+    color : white;
     ul{
         height : 300px;
         display : flex;
@@ -56,19 +53,19 @@ const Infos = styled.div`
 
 const Informations = styled.div`
     padding-bottom : 20px;
-    border-bottom : 1px solid black;
+    border-bottom : 1px solid white;
     width: 100%;
     height: 100%;
     text-align : center;
 `
 
 const H1 = styled.h1`
-    color: black;
+    color: white;
 `
 
 const Titles = styled.h3`
     margin: 10px 0;
-    color: black;
+    color: white;
 `
 const ImageContainer = styled.div`
     margin-left: 30px;
@@ -98,13 +95,15 @@ const Hotel = props => {
         return <h1>Chargement</h1>
     }
 
+    console.log(hotel.stars.length)
+
     return (
         <>
             <GlobalStyle />
             <Nav />
             <Row>
                 <ImageContainer>
-                    <HostelPicture src="https://www.parisinfo.com/var/otcp/sites/images/media/1.-photos/03.-hebergement-630-x-405/hotel-enseigne-neon-630x405-c-thinkstock/31513-1-fre-FR/Hotel-enseigne-neon-630x405-C-Thinkstock.jpg" alt="Hotel" />
+                    <HostelPicture src="https://www.orquebleue.fr/wp-content/uploads/2018/06/IMG_3479-1024x1024.jpg" alt="Hotel" />
                 </ImageContainer>
                 <Infos>
                     <Informations>
@@ -112,7 +111,7 @@ const Hotel = props => {
                         <Titles>{hotel.address}</Titles>
                         <Titles>{hotel.country} </Titles>
                         <Titles>{hotel.phone}</Titles>
-                        <Titles>{hotel.price}€ / {hotel.stars}*</Titles>
+                        <Titles>{hotel.price}€ / <Stars hotel={hotel}/></Titles>
                     </Informations>
                     <H1> Commodities</H1>
                     <ul>
