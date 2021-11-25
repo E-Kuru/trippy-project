@@ -1,11 +1,13 @@
 import Nav from "./Nav"
 import styled from 'styled-components';
+import imgtravel from './imgtravel.png';
 
 const TextAbout = styled.div`
 text-align: start;
 margin-left: 35%;
 h1{
     font-size: 40px;
+    margin-top: -340px;
     
 }
 
@@ -17,6 +19,13 @@ p{
     font-size: 19px;
 }
 
+img {
+    margin-left: -550px;
+    width: 50%;
+    margin-top: 40px;
+    
+}
+
 
 
 `
@@ -26,7 +35,8 @@ function About() {
         <div>
             <Nav/>
             <TextAbout>
-            <h1>À propos de nous</h1>
+            <img src={imgtravel}/><h1>À propos de nous</h1>
+            
 <h4>Bienvenue sur TravelTrib.com</h4>
 <p>
     TravelTrip est l'un des principaux fournisseurs<br/> 
