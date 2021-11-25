@@ -15,6 +15,8 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import CityMap from '../components/CityMap';
 import { FaCity } from 'react-icons/fa';
 import HomePage from './HomePage';
+import Icon from '../components/Icon';
+
 
 const GlobalStyle = createGlobalStyle`
     body {
@@ -29,7 +31,6 @@ const Row = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-
 `
 
 const Infos = styled.div`
@@ -37,9 +38,14 @@ const Infos = styled.div`
     margin: 2% auto 0 auto ;
     display: flex;
     flex-direction: column;
+<<<<<<< HEAD
     align-items: center;
     border: 1px black solid;
     box-shadow : 4px 2px 10px black;
+=======
+    border: 1px white solid;
+    box-shadow : 4px 2px 10px white;
+>>>>>>> 5c9b108ccfee19dde927c8bd52bf530e4ac5e36f
     border-radius : 5%;
     color : black;
     ul{
@@ -63,7 +69,13 @@ const Informations = styled.div`
 `
 
 const H1 = styled.h1`
+<<<<<<< HEAD
     color: black;
+=======
+    color: white;
+    text-align: center;
+
+>>>>>>> 5c9b108ccfee19dde927c8bd52bf530e4ac5e36f
 `
 
 const Titles = styled.h3`
@@ -80,14 +92,34 @@ height : 500px;
 width : 700px;
 border-radius : 5%;
 `
+const Comm = styled.div`
+display: flex;
+flex-direction:row;
+flex-wrap: wrap;
+align-items: center;
+width: 420px;
+`
+
+const IconAlign = styled.div`
+    margin-left: 30px;
+    
+`
+
+const IconItem = styled.div`
+    text-align: left;
+    margin-left: 30px;
+    
+`
+
+
 const Hotel = props => {
 
     const [hotel, setHotel] = useState([])
 
-    // const { id } = useParams()
+    const { id } = useParams()
 
     useEffect(() => {
-        fetch(`https://trippy-konexio.herokuapp.com/api/hotels/619b99fc53a95d1d32bf1539`)
+        fetch(`https://trippy-konexio.herokuapp.com/api/hotels/${id}`)
             .then(res => res.json())
             .then(res => setHotel(res.result))
     }, [])
@@ -115,11 +147,16 @@ const Hotel = props => {
                         <Titles>{hotel.price}€ / {hotel.stars}*</Titles>
                     </Informations>
                     <H1> Commodities</H1>
-                    <ul>
-                        {hotel.commodities.map(e => (
-                            <li>{e}</li>
-                        ))}
-                    </ul>
+                    {hotel.commodities.map(e => (
+                        <Comm>
+                            <IconAlign>
+                                <Icon comodity={e}></Icon>
+                            </IconAlign>
+                            <IconItem>
+                                <p>{e}</p>
+                            </IconItem>
+                        </Comm>
+                    ))}                    
                     {/* {hotel.map(e => {
                         <Carousel>
                             <div>{e.}</div>
