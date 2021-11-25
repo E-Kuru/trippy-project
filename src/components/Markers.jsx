@@ -8,6 +8,8 @@ const MarkerContainer = styled.div `
   position: relative;
 `
 const P = styled.p `
+  border-radius : 50px;
+  width : 50px;
   padding : 4%;
   text-align : center;
   background-color : rgba(0,0,0,0.6);

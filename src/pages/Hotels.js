@@ -1,6 +1,7 @@
-import {useEffect, useState} from 'react'
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import styled from 'styled-components';
+import Hotel from "./Hotel"
 
 import Nav from '../components/Nav'
 import CityMap from '../components/CityMap'
@@ -75,6 +76,7 @@ const Hotels = () => {
       height: 20%;
       background-color: black;
       `
+    const [cities, setCities] = useState([])
 
       const MapContainer = styled.div`
         margin-bottom : 2%;
