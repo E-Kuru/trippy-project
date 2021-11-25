@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import styled from 'styled-components';
-import Hotel from "./Hotel"
+import { Link } from "react-router-dom"
 
 import Nav from '../components/Nav'
 import CityMap from '../components/CityMap'
@@ -71,6 +71,9 @@ const Hotels = () => {
             background: #ffff;
             border-radius: 10px;
         }
+        a{
+            text-decoration : none;
+        }
     `
 
     const Card = styled.div`
@@ -126,8 +129,6 @@ const Hotels = () => {
         .then(res => setHotels(res))
     },[])
 
-    console.log(hotels);
-
     const handleFetchClick = (page) => {
         fetch (`https://trippy-konexio.herokuapp.com/api/hotels/city/${city}?page=${page}`)
         .then(res => res.json())
@@ -158,12 +159,14 @@ const Hotels = () => {
                 <AllCards>
                     {hotels.results.map(hotel =>
                         <Card key={hotel.name}>
-                            <Title><h3>{hotel.name}</h3>
-                            <p>{hotel.stars} ★</p>
-                             <img src={london} alt="img" />
-                            <p>{hotel.address}</p>
-                            <p>{hotel.price}€</p> 
-                            </Title>   
+                            <Link to={`/hotel/${hotel._id}`}>
+                                <Title><h3>{hotel.name}</h3>
+                                <p>{hotel.stars} ★</p>
+                                <img src={london} alt="img" />
+                                <p>{hotel.address}</p>
+                                <p>{hotel.price}€</p> 
+                                </Title>
+                            </Link>
                         </Card>
                     )}
                 </AllCards>
