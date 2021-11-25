@@ -2,8 +2,8 @@ import GoogleMapReact from 'google-map-react'
 import styled from 'styled-components'
 
 const Map = styled.div `
-    width : 50%;
-    height : 80vh;
+    width : 90%;
+    height : 100%;
     padding-top: 22px;
 
 `
