@@ -130,7 +130,9 @@ const Hotel = props => {
                         <Titles>{hotel.price}€ {hotel.stars}</Titles>
                     </Informations>
                     <H1> Commodities</H1>
-                    {hotel.commodities.map(e => (
+                    {hotel.commodities.filter(function(ele , pos){
+                        return hotel.commodities.indexOf(ele) == pos;
+                    }).map(e => (
                         <Comm>
                             <IconAlign>
                                 <Icon comodity={e}></Icon>
@@ -139,7 +141,7 @@ const Hotel = props => {
                                 <p>{e}</p>
                             </IconItem>
                         </Comm>
-                    ))}                    
+                    ))}                   
                     {/* {hotel.map(e => {
                         <Carousel>
                             <div>{e.}</div>
@@ -153,3 +155,17 @@ const Hotel = props => {
 
 
 export default Hotel;
+
+
+
+{/* <H1> Commodities</H1>
+                    {hotel.commodities.map(e => (
+                        <Comm>
+                            <IconAlign>
+                                <Icon comodity={e}></Icon>
+                            </IconAlign>
+                            <IconItem>
+                                <p>{e}</p>
+                            </IconItem>
+                        </Comm>
+                    ))}   */}
