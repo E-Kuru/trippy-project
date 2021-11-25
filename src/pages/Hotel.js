@@ -9,6 +9,8 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import CityMap from '../components/CityMap';
 import { FaCity } from 'react-icons/fa';
 import HomePage from './HomePage';
+import Icon from '../components/Icon';
+
 
 const GlobalStyle = createGlobalStyle`
     body {
@@ -22,7 +24,6 @@ const Row = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-
 `
 
 const Infos = styled.div`
@@ -30,7 +31,6 @@ const Infos = styled.div`
     margin: 5% auto 0 auto ;
     display: flex;
     flex-direction: column;
-    align-items: center;
     border: 1px white solid;
     box-shadow : 4px 2px 10px white;
     border-radius : 5%;
@@ -57,6 +57,8 @@ const Informations = styled.div`
 
 const H1 = styled.h1`
     color: white;
+    text-align: center;
+
 `
 
 const Titles = styled.h3`
@@ -73,6 +75,26 @@ height : 500px;
 width : 700px;
 border-radius : 5%;
 `
+const Comm = styled.div`
+display: flex;
+flex-direction:row;
+flex-wrap: wrap;
+align-items: center;
+width: 420px;
+`
+
+const IconAlign = styled.div`
+    margin-left: 30px;
+    
+`
+
+const IconItem = styled.div`
+    text-align: left;
+    margin-left: 30px;
+    
+`
+
+
 const Hotel = props => {
 
     const [hotel, setHotel] = useState([])
@@ -108,11 +130,16 @@ const Hotel = props => {
                         <Titles>{hotel.price}€ {hotel.stars}</Titles>
                     </Informations>
                     <H1> Commodities</H1>
-                    <ul>
                     {hotel.commodities.map(e => (
-                        <li>{e}</li>
-                    ))}
-                    </ul>                     
+                        <Comm>
+                            <IconAlign>
+                                <Icon comodity={e}></Icon>
+                            </IconAlign>
+                            <IconItem>
+                                <p>{e}</p>
+                            </IconItem>
+                        </Comm>
+                    ))}                    
                     {/* {hotel.map(e => {
                         <Carousel>
                             <div>{e.}</div>
