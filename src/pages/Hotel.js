@@ -24,7 +24,7 @@ const GlobalStyle = createGlobalStyle`
 const Row = styled.div`
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
 
 `
 
@@ -69,13 +69,22 @@ const Titles = styled.h3`
 `
 const ImageContainer = styled.div`
     margin-left: 30px;
-    margin-top: 20px;
+    margin-top: 0;
 `
 
 const HostelPicture = styled.img`
-height : 500px;
+height : 600px;
 width : 700px;
 border-radius : 5%;
+margin-top: 30px;
+`
+
+const PriceStar = styled.div`
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items:center;
 `
 const Hotel = props => {
 
@@ -111,7 +120,8 @@ const Hotel = props => {
                         <Titles>{hotel.address}</Titles>
                         <Titles>{hotel.country} </Titles>
                         <Titles>{hotel.phone}</Titles>
-                        <Titles>{hotel.price}€ / <Stars hotel={hotel}/></Titles>
+                        <Titles>{hotel.price}€</Titles>
+                        <Titles><Stars hotel={hotel} /></Titles>
                     </Informations>
                     <H1> Commodities</H1>
                     <ul>
