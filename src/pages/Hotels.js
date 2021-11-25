@@ -1,6 +1,8 @@
-import {useEffect, useState} from 'react'
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import styled from 'styled-components';
+import Hotel from "./Hotel"
+
 import Nav from '../components/Nav'
 import CityMap from '../components/CityMap'
 import Markers from '../components/Markers'
@@ -33,7 +35,7 @@ const Hotels = () => {
       `
     const [cities, setCities] = useState([])
 
-    const {city} = useParams()
+    const { city } = useParams()
 
 
 
