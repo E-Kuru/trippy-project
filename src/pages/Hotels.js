@@ -28,6 +28,7 @@ const Hotels = () => {
     ${city === 'nice' && nice}') no-repeat center/cover;
     background-attachment: fixed;
     color : white;
+    
 
     display : flex;
 
@@ -36,8 +37,9 @@ const Hotels = () => {
     text-align : center;
 
     span {
-        font-size : 50px;
         font-weight : bolder;
+        font-size: 6em;
+        text-shadow: 10px 1px 2px #0d3d70, 0 0 1em #0d3d70, 0 0 0.2em #0d3d70;
     }
     
     h2{
@@ -50,6 +52,7 @@ const Hotels = () => {
     const H1 = styled.h1 `
         margin-bottom : 2%; 
         text-align : center;
+    
     `
 
     const AllCards = styled.div`
