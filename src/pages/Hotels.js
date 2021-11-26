@@ -172,13 +172,15 @@ const Hotels = () => {
                 <AllCards>
                     {hotels.results.map(hotel =>
                         <Card key={hotel.name}>
-                            <Title><h3>{hotel.name}</h3>
-                            <p>{hotel.stars} ★</p>
-                             <img src={london} alt="img" />
-                            <p>{hotel.address}</p>
-                            <p>{hotel.price}€</p> 
-                            <button onClick={() => handleAddFav(hotel._id)}>+ Favorite</button>
-                            </Title>   
+                            <Link to={`/hotel/${hotel._id}`}>
+                                <Title><h3>{hotel.name}</h3>
+                                <p>{hotel.stars} ★</p>
+                                <img src={london} alt="img" />
+                                <p>{hotel.address}</p>
+                                <p>{hotel.price}€</p> 
+                                <button onClick={() => handleAddFav(hotel._id)}>+ Favorite</button>
+                                </Title>   
+                            </Link> 
                         </Card>
                     )}
                 </AllCards>
