@@ -40,6 +40,7 @@ const Hotels = () => {
         font-weight : bolder;
         font-size: 6em;
         text-shadow: 10px 1px 2px #0d3d70, 0 0 1em #0d3d70, 0 0 0.2em #0d3d70;
+        font-weight : 200; 
     }
     
     h2{
@@ -139,7 +140,7 @@ const Hotels = () => {
     if (!hotels.center) {
         return <p>Chargement...</p>
     }
-
+    
     return(
         <>
             <Nav/>
@@ -147,7 +148,7 @@ const Hotels = () => {
                     <h2>
                         <span>
                             {city === 'london' && 'London'}
-                            {city === 'new-york' && 'New-York'}
+                            {city === 'new-york'  && 'New-York'}
                             {city === 'paris' && 'Paris'}
                             {city === 'nice' && 'Nice'}
                             {city === 'rome' && 'Rome'}
@@ -164,6 +165,7 @@ const Hotels = () => {
                                 <Title><h3>{hotel.name}</h3>
                                 <p>{hotel.stars} ★</p>
                                 <img src={london} alt="img" />
+                                {/* <img src={`https://trippy-konexio.herokuapp.com${hotel.pictures[0]}`} alt="img" /> */}
                                 <p>{hotel.address}</p>
                                 <p>{hotel.price}€</p> 
                                 </Title>

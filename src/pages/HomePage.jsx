@@ -43,6 +43,7 @@ const HeadDiv = styled.div `
         margin : 4% 8% 0 0;
         font-size : 40px; 
         font-weight : lighter  
+        
     }
 
 
