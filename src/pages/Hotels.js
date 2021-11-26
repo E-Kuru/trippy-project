@@ -12,8 +12,6 @@ import paris from '../assets/paris.png'
 import nice from '../assets/nice.png'
 import rome from '../assets/rome.png'
 import newYork from '../assets/new-york.png'
-import img from '../components/img.json';
-
 
 const Hotels = () => {
     
@@ -30,10 +28,6 @@ const Hotels = () => {
     background-attachment: fixed;
     color : white;
     
-<<<<<<< HEAD
-=======
-
->>>>>>> fc26fe4a319bbe13e1e81c81a3c6735adf276a15
     display : flex;
     
     justify-content : flex-end;    
