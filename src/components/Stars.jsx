@@ -13,7 +13,10 @@ const Stared = styled.h3`
 const Stars = (props) => {
     return (
         <div>
-            {props.hotel.stars === 1 && <Stared><Etoiles src={star} /></Stared>}
+            {props.hotel.stars === 1 &&
+                <div>
+                    <Stared><Etoiles src={star} /></Stared>
+                </div>}
             {props.hotel.stars === 2 &&
                 <div>
                     <Stared><Etoiles src={star} /> <Etoiles src={star} /></Stared>

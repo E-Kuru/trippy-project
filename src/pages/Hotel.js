@@ -125,8 +125,6 @@ const Hotel = props => {
         return <h1>Chargement</h1>
     }
 
-    console.log(hotel.stars.length)
-
     return (
         <>
             <GlobalStyle />
