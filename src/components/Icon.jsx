@@ -1,4 +1,4 @@
-import {FaSwimmingPool, FaCocktail, FaSpa, FaWheelchair, FaSuitcase, FaDog,FaShuttleVan} from 'react-icons/fa';
+import {FaSwimmingPool, FaCocktail, FaSpa, FaWheelchair, FaSuitcase, FaDog,FaShuttleVan, FaParking, FaSmoking} from 'react-icons/fa';
 import {MdRoomService, MdOutlineSmokeFree, MdOutlineLanguage,MdFamilyRestroom, MdMeetingRoom} from 'react-icons/md';
 import {AiOutlineWifi} from 'react-icons/ai';
 import {CgGym} from 'react-icons/cg';
@@ -37,6 +37,8 @@ function Icon(props) {
                 {props.comodity === "meeting rooms" && <MdMeetingRoom />}
                 {props.comodity === "animals" && <FaDog/>}
                 {props.comodity === "shuttle" && <FaShuttleVan/>}
+                {props.comodity === "parking" && <FaParking/>}
+                {props.comodity === "smoking" && <FaSmoking/>}
             </Iconics>
         </>
     )
