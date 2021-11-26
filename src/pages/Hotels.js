@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import styled from 'styled-components';
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 import Nav from '../components/Nav'
 import CityMap from '../components/CityMap'
@@ -12,12 +12,13 @@ import paris from '../assets/paris.png'
 import nice from '../assets/nice.png'
 import rome from '../assets/rome.png'
 import newYork from '../assets/new-york.png'
+import img from '../components/img.json';
 
 
 const Hotels = () => {
     
     const {city} = useParams()
-
+    
     const HeadDiv = styled.div `
     height : 88vh;
     background : url('
@@ -28,13 +29,13 @@ const Hotels = () => {
     ${city === 'nice' && nice}') no-repeat center/cover;
     background-attachment: fixed;
     color : white;
-
+    
     display : flex;
-
+    
     justify-content : flex-end;    
-
+    
     text-align : center;
-
+    
     span {
         font-size : 50px;
         font-weight : bolder;
@@ -45,61 +46,61 @@ const Hotels = () => {
         font-size : 40px; 
         font-weight : lighter  
     }
-`  
-
+    `  
+    
     const H1 = styled.h1 `
-        margin-bottom : 2%; 
-        text-align : center;
+    margin-bottom : 2%; 
+    text-align : center;
     `
-
+    
     const AllCards = styled.div`
-        direction : rtl;
-        border-bottom : 1px solid black;
-        border-top : 1px solid black;
-        height : 80vh;
-        overflow : scroll;
-        display : flex;
-        flex-wrap : wrap;
-        justify-content : space-around;
-        background-color : #0E3D71;
-        ::-webkit-scrollbar {
-            direction:ltr;
-            height: 4px;
-            width: 20px;
-          }
-        ::-webkit-scrollbar-thumb:vertical{
-            background: #ffff;
-            border-radius: 10px;
-        }
-        a{
-            text-decoration : none;
-        }
+    direction : rtl;
+    border-bottom : 1px solid black;
+    border-top : 1px solid black;
+    height : 80vh;
+    overflow : scroll;
+    display : flex;
+    flex-wrap : wrap;
+    justify-content : space-around;
+    background-color : #0E3D71;
+    ::-webkit-scrollbar {
+        direction:ltr;
+        height: 4px;
+        width: 20px;
+    }
+    ::-webkit-scrollbar-thumb:vertical{
+        background: #ffff;
+        border-radius: 10px;
+    }
+    a{
+        text-decoration : none;
+    }
     `
 
     const Card = styled.div`
     
     background-color : #ffff;
     
-      border-radius: 3px;
-      font-weight: bold;
-      margin: 2% 0;
+    border-radius: 3px;
+    font-weight: bold;
+    margin: 2% 0;
       text-align: center;
       width: 40%;
       height: 400px;
       img{
           width : 80%;
           height : 210px;
-      }
-      `
-
+        }
+        `
+        
       const Title = styled.div`
       color: black;
       `
       const MapContainer = styled.div`
-        margin-bottom : 2%;
-        height : 90vh;
-        display : flex;
-        justify-content : center;
+      margin-bottom : 2%;
+      height : 90vh;
+      display : flex;
+      justify-content : center;
         align-items : center;
       `
       const ButtonGroup = styled.div`
@@ -115,29 +116,32 @@ const Hotels = () => {
         margin: 10px;
         cursor: pointer;
         margin-right: 5px;  
-      }
+    }
     
     `
     
     const [hotels, setHotels] = useState([])
-
+    
     useEffect( () => {
         fetch (`https://trippy-konexio.herokuapp.com/api/hotels/city/${city}?page=3`)
         .then(res => res.json())
         .then(res => setHotels(res))
     },[])
-
+    
     const handleFetchClick = (page) => {
         fetch (`https://trippy-konexio.herokuapp.com/api/hotels/city/${city}?page=${page}`)
         .then(res => res.json())
         .then(res => setHotels(res))
     }
 
+    
+    
     if (!hotels.center) {
         return <p>Chargement...</p>
     }
-
+    
     return(
+        
         <>
             <Nav/>
             <HeadDiv>
