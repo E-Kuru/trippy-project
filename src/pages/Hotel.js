@@ -4,7 +4,8 @@ import Nav from '../components/Nav'
 import { createGlobalStyle } from 'styled-components';
 import { useParams } from 'react-router'
 import { Carousel } from 'react-responsive-carousel'
-
+import stars from "../assets/star.png"
+import Stars from '../components/Stars';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import CityMap from '../components/CityMap';
 import { FaCity } from 'react-icons/fa';
@@ -12,11 +13,14 @@ import HomePage from './HomePage';
 import Icon from '../components/Icon';
 
 
+
 const GlobalStyle = createGlobalStyle`
     body {
-        background-image : url("https://img.freepik.com/vecteurs-libre/degrade-studio-chambre-vide-bleu_1035-18644.jpg?size=626&ext=jpg");
+        background-image: url("https://cdn.radiofrance.fr/s3/cruiser-production/2020/11/bcbd126f-f452-4e07-bb89-9d3b8b74db4b/600x337_bleu.jpg");
         background-repeat: no-repeat;
         background-size : 100% 100%;
+        height: 100vh;
+        background-attachment: fixed;
     }
 `
 
@@ -27,24 +31,15 @@ const Row = styled.div`
 `
 
 const Infos = styled.div`
+    background-color: #011b4f;
     width : 30%;
-    margin: 5% auto 0 auto ;
+    margin: 2% auto 0 auto ;
     display: flex;
     flex-direction: column;
     border: 1px white solid;
-    box-shadow : 4px 2px 10px white;
+    box-shadow : 4px 2px 3px white;
     border-radius : 5%;
     color : white;
-    ul{
-        height : 300px;
-        display : flex;
-        justify-content : space-around;
-        flex-wrap : wrap;
-        li{
-            width : 33%;
-            margin-right : 2%;
-        }
-    }
 `
 
 const Informations = styled.div`
@@ -67,30 +62,49 @@ const Titles = styled.h3`
 `
 const ImageContainer = styled.div`
     margin-left: 30px;
-    margin-top: 20px;
+    margin-top: 0;
 `
 
 const HostelPicture = styled.img`
-height : 500px;
+height : 600px;
 width : 700px;
 border-radius : 5%;
+margin-top: 30px;
 `
+
 const Comm = styled.div`
 display: flex;
 flex-direction:row;
 flex-wrap: wrap;
 align-items: center;
-width: 420px;
 `
 
-const IconAlign = styled.div`
-    margin-left: 30px;
+const UlContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    flew-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+
+    div {
+        display: flex;
+        flex-direction : row;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-right: 10px;
+    }
+    ul {
+        padding-left: 20px;
+    }
+`
+
+const IconAlign = styled.ul`
+    padding: 5px;
     
 `
 
 const IconItem = styled.div`
-    text-align: left;
-    margin-left: 30px;
+    
     
 `
 
@@ -99,6 +113,9 @@ const Hotel = props => {
 
     const [hotel, setHotel] = useState([])
 
+
+
+    // const { id } = useParams()
     const { id } = useParams()
 
     useEffect(() => {
@@ -109,9 +126,11 @@ const Hotel = props => {
 
     console.log(hotel);
 
-    if(!hotel.commodities){
+    if (!hotel.commodities) {
         return <h1>Chargement</h1>
     }
+
+    console.log(hotel.stars.length)
 
     return (
         <>
@@ -119,27 +138,34 @@ const Hotel = props => {
             <Nav />
             <Row>
                 <ImageContainer>
-                    <HostelPicture src="https://www.parisinfo.com/var/otcp/sites/images/media/1.-photos/03.-hebergement-630-x-405/hotel-enseigne-neon-630x405-c-thinkstock/31513-1-fre-FR/Hotel-enseigne-neon-630x405-C-Thinkstock.jpg" alt="Hotel" />
-                </ImageContainer>
+                    <HostelPicture src="https://www.orquebleue.fr/wp-content/uploads/2018/06/IMG_3479-1024x1024.jpg" alt="Hotel" />
+                </ImageContainer> 
                 <Infos>
                     <Informations>
                         <H1>{hotel.name}</H1>
                         <Titles>{hotel.address}</Titles>
                         <Titles>{hotel.country} </Titles>
                         <Titles>{hotel.phone}</Titles>
-                        <Titles>{hotel.price}€ {hotel.stars}</Titles>
+                        <Titles>{hotel.price}€</Titles>
+                        <Titles><Stars hotel={hotel} /></Titles>
                     </Informations>
                     <H1> Commodities</H1>
-                    {hotel.commodities.map(e => (
-                        <Comm>
-                            <IconAlign>
-                                <Icon comodity={e}></Icon>
-                            </IconAlign>
-                            <IconItem>
-                                <p>{e}</p>
-                            </IconItem>
-                        </Comm>
-                    ))}                    
+                    <UlContainer>
+                        <div>
+                            {hotel.commodities.filter(function (ele, pos) {
+                                return hotel.commodities.indexOf(ele) == pos;
+                            }).map(e => (
+                                <Comm>
+                                    <IconAlign>
+                                        <Icon comodity={e}></Icon>
+                                    </IconAlign>
+                                    <IconItem>
+                                        <p>{e}</p>
+                                    </IconItem>
+                                </Comm>
+                            ))}
+                        </div>
+                    </UlContainer>
                     {/* {hotel.map(e => {
                         <Carousel>
                             <div>{e.}</div>
