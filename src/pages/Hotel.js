@@ -6,7 +6,6 @@ import { useParams } from 'react-router'
 import { Carousel } from 'react-responsive-carousel'
 import stars from "../assets/star.png"
 import Stars from '../components/Stars';
-
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import CityMap from '../components/CityMap';
 import { FaCity } from 'react-icons/fa';
@@ -14,12 +13,14 @@ import HomePage from './HomePage';
 import Icon from '../components/Icon';
 
 
+
 const GlobalStyle = createGlobalStyle`
     body {
         background-image: url("https://cdn.radiofrance.fr/s3/cruiser-production/2020/11/bcbd126f-f452-4e07-bb89-9d3b8b74db4b/600x337_bleu.jpg");
         background-repeat: no-repeat;
         background-size : 100% 100%;
-        height: 100%;
+        height: 100vh;
+        background-attachment: fixed;
     }
 `
 
@@ -137,7 +138,7 @@ const Hotel = props => {
             <Row>
                 <ImageContainer>
                     <HostelPicture src="https://www.orquebleue.fr/wp-content/uploads/2018/06/IMG_3479-1024x1024.jpg" alt="Hotel" />
-                </ImageContainer>
+                </ImageContainer> 
                 <Infos>
                     <Informations>
                         <H1>{hotel.name}</H1>
@@ -177,17 +178,3 @@ const Hotel = props => {
 
 
 export default Hotel;
-
-
-
-{/* <H1> Commodities</H1>
-                    {hotel.commodities.map(e => (
-                        <Comm>
-                            <IconAlign>
-                                <Icon comodity={e}></Icon>
-                            </IconAlign>
-                            <IconItem>
-                                <p>{e}</p>
-                            </IconItem>
-                        </Comm>
-                    ))}   */}

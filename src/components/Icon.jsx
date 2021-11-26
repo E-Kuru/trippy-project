@@ -5,8 +5,7 @@ import {CgGym} from 'react-icons/cg';
 import {GiCroissant, GiComputerFan, GiWashingMachine} from 'react-icons/gi';
 import {RiFridgeFill} from 'react-icons/ri';
 import {BiBed} from 'react-icons/bi';
-
-function Icon (props) {
+import styled from 'styled-components';
 
 
 const Iconics = styled.div`
@@ -39,4 +38,4 @@ function Icon(props) {
     )
 }
 
-export default Icon;
+export default Icon ;
