@@ -30,6 +30,10 @@ const Hotels = () => {
     background-attachment: fixed;
     color : white;
     
+<<<<<<< HEAD
+=======
+
+>>>>>>> fc26fe4a319bbe13e1e81c81a3c6735adf276a15
     display : flex;
     
     justify-content : flex-end;    
@@ -37,8 +41,10 @@ const Hotels = () => {
     text-align : center;
     
     span {
-        font-size : 50px;
         font-weight : bolder;
+        font-size: 6em;
+        text-shadow: 10px 1px 2px #0d3d70, 0 0 1em #0d3d70, 0 0 0.2em #0d3d70;
+        font-weight : 200; 
     }
     
     h2{
@@ -86,13 +92,21 @@ const Hotels = () => {
     margin: 2% 0;
       text-align: center;
       width: 40%;
-      height: 400px;
+      height: 480px;
       img{
           width : 80%;
           height : 210px;
-        }
-        `
-        
+      }
+      button{
+          color : white;
+          background-color : #E61818;
+          border-radius : 50px;
+          width : 25%;
+          height : 48px;
+          font-weight : bolder;
+      }
+      `
+
       const Title = styled.div`
       color: black;
       `
@@ -121,7 +135,9 @@ const Hotels = () => {
     `
     
     const [hotels, setHotels] = useState([])
-    
+
+    const [HotelFav, setHotelFav] = useState([])
+
     useEffect( () => {
         fetch (`https://trippy-konexio.herokuapp.com/api/hotels/city/${city}?page=3`)
         .then(res => res.json())
@@ -134,8 +150,11 @@ const Hotels = () => {
         .then(res => setHotels(res))
     }
 
-    
-    
+    const handleAddFav = (id) =>{
+        setHotelFav([...HotelFav,id])
+        localStorage.setItem('Favs', JSON.stringify(HotelFav));
+    }
+
     if (!hotels.center) {
         return <p>Chargement...</p>
     }
@@ -148,7 +167,7 @@ const Hotels = () => {
                     <h2>
                         <span>
                             {city === 'london' && 'London'}
-                            {city === 'new-york' && 'New-York'}
+                            {city === 'new-york'  && 'New-York'}
                             {city === 'paris' && 'Paris'}
                             {city === 'nice' && 'Nice'}
                             {city === 'rome' && 'Rome'}
@@ -165,10 +184,12 @@ const Hotels = () => {
                                 <Title><h3>{hotel.name}</h3>
                                 <p>{hotel.stars} ★</p>
                                 <img src={london} alt="img" />
+                                {/* <img src={`https://trippy-konexio.herokuapp.com${hotel.pictures[0]}`} alt="img" /> */}
                                 <p>{hotel.address}</p>
                                 <p>{hotel.price}€</p> 
-                                </Title>
-                            </Link>
+                                <button onClick={() => handleAddFav(hotel._id)}>+ Favorite</button>
+                                </Title>   
+                            </Link> 
                         </Card>
                     )}
                 </AllCards>

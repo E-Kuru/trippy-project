@@ -33,12 +33,17 @@ const HeadDiv = styled.div `
 
     span {
         font-weight : bolder;
+        font-weight : bolder;
+        font-size: 3.5em;
+        text-shadow: white 1px 0 10px;
+    
     }
     
     h2{
         margin : 4% 8% 0 0;
         font-size : 40px; 
         font-weight : lighter  
+        
     }
 
 
@@ -145,7 +150,7 @@ function HomePage() {
             <HeadSection>
                 <Nav/>
                 <HeadDiv>
-                    <h2><span>Travel Trip</span>, <br /> ton kiff en un click</h2>
+                    <h2><span>Travel Trip</span><br/> ________________________<br/> Ton kiff en un click.</h2>
                 </HeadDiv>
             </HeadSection>
             
