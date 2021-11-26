@@ -85,10 +85,18 @@ const Hotels = () => {
       margin: 2% 0;
       text-align: center;
       width: 40%;
-      height: 400px;
+      height: 480px;
       img{
           width : 80%;
           height : 210px;
+      }
+      button{
+          color : white;
+          background-color : #E61818;
+          border-radius : 50px;
+          width : 25%;
+          height : 48px;
+          font-weight : bolder;
       }
       `
 
@@ -121,6 +129,8 @@ const Hotels = () => {
     
     const [hotels, setHotels] = useState([])
 
+    const [HotelFav, setHotelFav] = useState([])
+
     useEffect( () => {
         fetch (`https://trippy-konexio.herokuapp.com/api/hotels/city/${city}?page=3`)
         .then(res => res.json())
@@ -131,6 +141,11 @@ const Hotels = () => {
         fetch (`https://trippy-konexio.herokuapp.com/api/hotels/city/${city}?page=${page}`)
         .then(res => res.json())
         .then(res => setHotels(res))
+    }
+
+    const handleAddFav = (id) =>{
+        setHotelFav([...HotelFav,id])
+        localStorage.setItem('Favs', JSON.stringify(HotelFav));
     }
 
     if (!hotels.center) {
@@ -157,14 +172,13 @@ const Hotels = () => {
                 <AllCards>
                     {hotels.results.map(hotel =>
                         <Card key={hotel.name}>
-                            <Link to={`/hotel/${hotel._id}`}>
-                                <Title><h3>{hotel.name}</h3>
-                                <p>{hotel.stars} ★</p>
-                                <img src={london} alt="img" />
-                                <p>{hotel.address}</p>
-                                <p>{hotel.price}€</p> 
-                                </Title>
-                            </Link>
+                            <Title><h3>{hotel.name}</h3>
+                            <p>{hotel.stars} ★</p>
+                             <img src={london} alt="img" />
+                            <p>{hotel.address}</p>
+                            <p>{hotel.price}€</p> 
+                            <button onClick={() => handleAddFav(hotel._id)}>+ Favorite</button>
+                            </Title>   
                         </Card>
                     )}
                 </AllCards>
