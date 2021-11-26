@@ -111,13 +111,10 @@ const IconItem = styled.div`
 const Hotel = props => {
 
     const [hotel, setHotel] = useState([])
-
-
-
-    // const { id } = useParams()
+    const { id } = useParams()
 
     useEffect(() => {
-        fetch(`https://trippy-konexio.herokuapp.com/api/hotels/619b99fc53a95d1d32bf1539`)
+        fetch(`https://trippy-konexio.herokuapp.com/api/hotels/${id}`)
             .then(res => res.json())
             .then(res => setHotel(res.result))
     }, [])
@@ -137,7 +134,6 @@ const Hotel = props => {
             <Row>
                 <ImageContainer>
                     <HostelPicture src="https://www.orquebleue.fr/wp-content/uploads/2018/06/IMG_3479-1024x1024.jpg" alt="Hotel" />
-
                 </ImageContainer>
                 <Infos>
                     <Informations>
