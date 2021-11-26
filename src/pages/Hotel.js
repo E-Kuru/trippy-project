@@ -1,23 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Nav from '../components/Nav'
-<<<<<<< HEAD
 import { createGlobalStyle } from 'styled-components';
 import { useParams } from 'react-router'
 import { Carousel } from 'react-responsive-carousel'
-import stars from "../assets/star.png"
 import Stars from '../components/Stars';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
-=======
-
-import HomePage from './HomePage';
-import Stars from '../components/Stars';
-import stars from "../assets/star.png"
->>>>>>> main
-import CityMap from '../components/CityMap';
-import { useParams } from 'react-router'
-
-import { createGlobalStyle } from 'styled-components';
 
 import { FaCity } from 'react-icons/fa';
 import Icon from '../components/Icon';
@@ -121,13 +109,6 @@ const IconItem = styled.div`
 const Hotel = props => {
 
     const [hotel, setHotel] = useState([])
-<<<<<<< HEAD
-
-
-
-    // const { id } = useParams()
-=======
->>>>>>> main
     const { id } = useParams()
 
     useEffect(() => {
