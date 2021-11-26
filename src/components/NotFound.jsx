@@ -1,30 +1,34 @@
 import Nav from "./Nav"
 import styled from 'styled-components';
 
-const Text = styled.div`
-text-align: center;
-p{
-    font-size: 14em;
+const TextNotFound = styled.div`
+
+h1 {
+    font-size: 350px;
+    font-weight: lighter;
+    text-align: center;
+    margin-top: -70px;
+    
 }
-`
-const Textp = styled.div`
-text-align: center;
-p{
-    font-size: 8
-    em;
+
+p {
+    text-align: center;
+    font-size: 80px;
+    margin-top: -280px;
+    
 }
+
 `
+
 function NotFound() {
     return (
         <div>
             <Nav/>
-            <Text>
-            <p>404</p>
-            </Text>
-            <Textp>
-            <p>Page Not Found</p>
-            </Textp>
             
+            <TextNotFound>
+            <h1>404</h1>
+            <p>Page Not Found</p>
+            </TextNotFound>
         </div>
     )
 }
