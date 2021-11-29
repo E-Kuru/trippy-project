@@ -76,7 +76,6 @@ const Hotels = () => {
         text-decoration : none;
     }
     `
-
     const Card = styled.div`
     
     background-color : #ffff;
@@ -100,7 +99,6 @@ const Hotels = () => {
           font-weight : bolder;
       }
       `
-
       const Title = styled.div`
       color: black;
       `
@@ -125,7 +123,6 @@ const Hotels = () => {
         cursor: pointer;
         margin-right: 5px;  
     }
-    
     `
     
     const [hotels, setHotels] = useState([])
@@ -181,9 +178,9 @@ const Hotels = () => {
                                 {/* <img src={`https://trippy-konexio.herokuapp.com${hotel.pictures[0]}`} alt="img" /> */}
                                 <p>{hotel.address}</p>
                                 <p>{hotel.price}€</p> 
-                                <button onClick={() => handleAddFav(hotel._id)}>+ Favorite</button>
                                 </Title>   
                             </Link> 
+                                <button onClick={() => handleAddFav(hotel._id)}>+ Favorite</button>
                         </Card>
                     )}
                 </AllCards>
