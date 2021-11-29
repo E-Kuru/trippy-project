@@ -181,9 +181,9 @@ const Hotels = () => {
                                 {/* <img src={`https://trippy-konexio.herokuapp.com${hotel.pictures[0]}`} alt="img" /> */}
                                 <p>{hotel.address}</p>
                                 <p>{hotel.price}€</p> 
-                                <button onClick={() => handleAddFav(hotel._id)}>+ Favorite</button>
                                 </Title>   
                             </Link> 
+                                <button onClick={() => handleAddFav(hotel._id)}>+ Favorite</button>
                         </Card>
                     )}
                 </AllCards>
