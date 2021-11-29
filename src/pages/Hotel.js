@@ -13,6 +13,10 @@ import { createGlobalStyle } from 'styled-components';
 import { FaCity } from 'react-icons/fa';
 import Icon from '../components/Icon';
 
+import ReactDom from 'react-dom';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+
 
 const GlobalStyle = createGlobalStyle`
     body {
@@ -27,6 +31,7 @@ const GlobalStyle = createGlobalStyle`
 const Row = styled.div`
     display: flex;
     flex-direction: row;
+    margin-bottom: 20px;
 `
 
 const Infos = styled.div`
@@ -108,6 +113,10 @@ const IconItem = styled.div`
     
 `
 
+const BedRooms = styled.img`
+    height: 600px;
+`
+
 const Hotel = props => {
 
     const [hotel, setHotel] = useState([])
@@ -159,8 +168,29 @@ const Hotel = props => {
                             ))}
                         </div>
                     </UlContainer>
+                    {/* <div>
+                        {hotel.rooms.map(e => (
+                            <div>
+                                <p>{e}</p>
+                            </div>
+                        ))}
+                    </div> */}
                 </Infos>
             </Row>
+            <Carousel>
+                <div>
+                    <BedRooms src="https://monparisjoli.com/wp-content/uploads/2016/02/56697034.jpg" />
+                    <p className="legend">Chambre 1</p>
+                </div>
+                <div>
+                    <BedRooms src="https://lh3.googleusercontent.com/proxy/OcjEEKJJhHtiZTWy0VnhhXxmGW3tvZGLcyg6S5Y8oyxL--0L0acMLJOliclmgIW0nzHm3uC94GMn6ipY3uKKuZ9KxxvLyt6maAewKkTxZ9NUHbKpBxCYUaAfkEo6KssoQ8vSxRt4XhxOgbJfKK89YS8L1O58XrVwC8vIfpkrr-5VJKxmyeZ-2zP1HaLAvxpV53zf8vEKcg" />
+                    <p className="legend">Legend 2</p>
+                </div>
+                <div>
+                    <BedRooms src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6spDMA6lFbkRt4GYkNUtOhRYdMgMB8ge3Yg&usqp=CAU" />
+                    <p className="legend">Legend 3</p>
+                </div>
+            </Carousel>
         </>
     );
 };
