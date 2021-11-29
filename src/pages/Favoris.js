@@ -76,17 +76,11 @@ function Favoris() {
     },[])
 
     const handleDeleteFav = id =>{
-
-    }
-
-    
-    if(!AllFavs){
-        return (
-            <>
-            <Nav/>
-            <h1>There's No fav my dude</h1>
-            </>
-        )
+        // localStorage.removeItem('Favs',`${id}`)
+        const cloneArray = Favs.filter(e => e._id != id)
+        console.log(Favs.map(e => e._id))
+        // setFavs(cloneArray)
+        // console.log(Fav);
     }
 
     return (
