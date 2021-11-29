@@ -45,10 +45,19 @@ const Card = styled.div`
     margin: 2% 0;
     text-align: center;
     width: 40%;
-    height: 420px;
+    height: 480px;
     img{
         width : 80%;
         height : 210px;
+    }
+    button{
+        color : white;
+        background-color : #E61818;
+        border-radius : 50px;
+        width : 25%;
+        height : 48px;
+        margin-bottom : 2%;
+        font-weight : bolder;
     }
   `
 
@@ -81,34 +90,60 @@ function Favoris() {
     },[])
 
     const handleDeleteFav = id =>{
-        localStorage.removeItem('Favs')
-        // const cloneArray = Favs.filter(e => e._id != id)
-        // console.log(Favs.map(e => e._id))
-        // setFavs(cloneArray)
-        // console.log(Fav);
+
+        const newArray = AllFavs.filter(e => e != id)
+        setAllfavs(newArray)
+        localStorage.setItem('Favs', JSON.stringify(newArray))
+
+        const newFavs = AllFavs.map(id => {
+            return fetch(`https://trippy-konexio.herokuapp.com/api/hotels/${id}`)
+        })
+        
+        // Promesse qui retourne tous les objects sous format Json 
+
+        Promise.all(newFavs).then(
+           response => Promise.all(response.map (res => res.json()))
+        )
+
+        // Stockage des nouveaux objets 
+        .then(res => {
+            const Data = res.map( e => e.result)
+            setFavs(Data)
+        })
+
     }
 
     return (
         <>
-        <Nav/>
-        <HeadFav>
-            <h1>Hi, there is all ur favs !! ;)</h1>
-        <button onClick={() => handleDeleteFav()}>Delete Storage</button>
-        </HeadFav>
+        {
+            Favs.length === 0 ? 
+            <>
+            <Nav/>
+            <h1 style={{textAlign : 'center'}}>U got no favs my dude ! ^^'</h1>
+            </>
+            :
+            <>
+            <Nav/>
+            <HeadFav>
+                <h1>Hi, there is all ur favs !! ;)</h1>
+            </HeadFav>
+    
+            <AllCards>
+            {Favs.map(e => (
+                <Card>
+                    <div><h3>{e.name}</h3>
+                    <p>{e.stars} ★</p>
+                    <img src={london} alt="img" />
+                    <p>{e.address}</p>
+                    <p>{e.price}€</p> 
+                    <button onClick={() => handleDeleteFav(e._id)}>Delete Favorite</button>
+                    </div>   
+                </Card>
+            ))}
+            </AllCards>
+            </>
 
-        <AllCards>
-        {Favs.map(e => (
-            <Card>
-                <div><h3>{e.name}</h3>
-                <p>{e.stars} ★</p>
-                <img src={london} alt="img" />
-                <p>{e.address}</p>
-                <p>{e.price}€</p> 
-                </div>   
-            </Card>
-        ))}
-        </AllCards>
-
+        }    
         </>
     )
 }
