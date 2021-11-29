@@ -1,4 +1,4 @@
-const array = [
+[
     "/img/hotels/10066892_18.jpg",
     "/img/hotels/10066892_19.jpg",
     "/img/hotels/10066892_24.jpg",
@@ -372,5 +372,4 @@ const array = [
     "/img/hotels/99389_30.jpg"
   ]
   
-  
-  console.log(array.includes("/img/hotels/8539517_43.jpg"))
+

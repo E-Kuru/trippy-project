@@ -16,12 +16,12 @@ function Favoris() {
 
     const [AllFavs, setAllfavs] = useState(JSON.parse(localStorage.getItem('Favs')))
 
-    useEffect( () => {
+    // useEffect( () => {
 
-        AllFavs.forEach( e => {
-        GetHotel(e)
-        }) 
-    },[])
+    //     AllFavs.forEach( e => {
+    //     GetHotel(e)
+    //     }) 
+    // },[])
 
     const GetHotel = id =>{
         fetch(`https://trippy-konexio.herokuapp.com/api/hotels/${id}`)
