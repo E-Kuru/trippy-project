@@ -7,44 +7,49 @@ import london from '../assets/london.png'
 const HeadFav = styled.div `
     text-align : center;
     h1{
+        margin : 1% 0;
+        font-style : italic;
         font-size : 45px;
     }
+
+    button{
+        color : white;
+        background-color : #000000;
+        border-radius : 50px;
+        width : 25%;
+        height : 48px;
+        margin-bottom : 2%;
+        font-weight : bolder;
+    }
+
 `
 
 const AllCards = styled.div`
-direction : rtl;
-border-bottom : 1px solid black;
-border-top : 1px solid black;
-display : flex;
-flex-wrap : wrap;
-justify-content : space-around;
-background-color : #0E3D71;
-a{
-    text-decoration : none;
-}
+    direction : rtl;
+    border-bottom : 1px solid black;
+    border-top : 1px solid black;
+    display : flex;
+    flex-wrap : wrap;
+    justify-content : space-around;
+    background-color : #0E3D71;
+    a{
+        text-decoration : none;
+    }
 `
 const Card = styled.div`
     
-background-color : #ffff;
+    background-color : #ffff;
 
-border-radius: 3px;
-font-weight: bold;
-margin: 2% 0;
-  text-align: center;
-  width: 40%;
-  height: 480px;
-  img{
-      width : 80%;
-      height : 210px;
-  }
-  button{
-      color : white;
-      background-color : #E61818;
-      border-radius : 50px;
-      width : 25%;
-      height : 48px;
-      font-weight : bolder;
-  }
+    border-radius: 3px;
+    font-weight: bold;
+    margin: 2% 0;
+    text-align: center;
+    width: 40%;
+    height: 420px;
+    img{
+        width : 80%;
+        height : 210px;
+    }
   `
 
 function Favoris() {
@@ -76,9 +81,9 @@ function Favoris() {
     },[])
 
     const handleDeleteFav = id =>{
-        // localStorage.removeItem('Favs',`${id}`)
-        const cloneArray = Favs.filter(e => e._id != id)
-        console.log(Favs.map(e => e._id))
+        localStorage.removeItem('Favs')
+        // const cloneArray = Favs.filter(e => e._id != id)
+        // console.log(Favs.map(e => e._id))
         // setFavs(cloneArray)
         // console.log(Fav);
     }
@@ -88,6 +93,7 @@ function Favoris() {
         <Nav/>
         <HeadFav>
             <h1>Hi, there is all ur favs !! ;)</h1>
+        <button onClick={() => handleDeleteFav()}>Delete Storage</button>
         </HeadFav>
 
         <AllCards>
@@ -99,7 +105,6 @@ function Favoris() {
                 <p>{e.address}</p>
                 <p>{e.price}€</p> 
                 </div>   
-                <button onClick={() => handleDeleteFav(e._id)}>- Favorite</button>
             </Card>
         ))}
         </AllCards>
