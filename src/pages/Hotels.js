@@ -38,8 +38,8 @@ const Hotels = () => {
 
     span {
         font-weight : bolder;
-        font-size: 6em;
-        text-shadow: 10px 1px 2px #0d3d70, 0 0 1em #0d3d70, 0 0 0.2em #0d3d70;
+        font-size: 4em;
+        text-shadow: 7px 1px 7px #0d3d70, 0 0 1em #0d3d70;
         font-weight : 200; 
     }
     
