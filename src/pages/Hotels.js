@@ -76,7 +76,6 @@ const Hotels = () => {
         text-decoration : none;
     }
     `
-
     const Card = styled.div`
     
     background-color : #ffff;
@@ -100,7 +99,6 @@ const Hotels = () => {
           font-weight : bolder;
       }
       `
-
       const Title = styled.div`
       color: black;
       `
@@ -125,7 +123,6 @@ const Hotels = () => {
         cursor: pointer;
         margin-right: 5px;  
     }
-    
     `
     
     const [hotels, setHotels] = useState([])
