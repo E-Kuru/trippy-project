@@ -3,9 +3,8 @@ import styled from 'styled-components';
 import Nav from '../components/Nav'
 import { createGlobalStyle } from 'styled-components';
 import { useParams } from 'react-router'
-import { Carousel } from 'react-responsive-carousel'
 import Stars from '../components/Stars';
-import 'react-responsive-carousel/lib/styles/carousel.min.css'
+import Rooms from '../components/Rooms';
 
 import { FaCity } from 'react-icons/fa';
 import Icon from '../components/Icon';
@@ -18,11 +17,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const GlobalStyle = createGlobalStyle`
     body {
-        background-image: url("https://cdn.radiofrance.fr/s3/cruiser-production/2020/11/bcbd126f-f452-4e07-bb89-9d3b8b74db4b/600x337_bleu.jpg");
-        background-repeat: no-repeat;
-        background-size : 100% 100%;
-        height: 100vh;
-        background-attachment: fixed;
+        background-color: #011b4f;
     }
 `
 
@@ -106,11 +101,6 @@ const IconAlign = styled.ul`
     
 `
 
-const IconItem = styled.div`
-    
-    
-`
-
 const BedRooms = styled.img`
     height: 600px;
 `
@@ -132,8 +122,6 @@ const Hotel = props => {
         return <h1>Chargement</h1>
     }
 
-    
-
     return (
         <>
             <GlobalStyle />
@@ -141,7 +129,7 @@ const Hotel = props => {
             <Row>
                 <ImageContainer>
                     <HostelPicture src="https://www.orquebleue.fr/wp-content/uploads/2018/06/IMG_3479-1024x1024.jpg" alt="Hotel" />
-                </ImageContainer> 
+                </ImageContainer>
                 <Infos>
                     <Informations>
                         <H1>{hotel.name}</H1>
@@ -161,34 +149,33 @@ const Hotel = props => {
                                     <IconAlign>
                                         <Icon comodity={e}></Icon>
                                     </IconAlign>
-                                    <IconItem>
+                                    <div>
                                         <p>{e}</p>
-                                    </IconItem>
+                                    </div>
                                 </Comm>
                             ))}
                         </div>
                     </UlContainer>
-                    {/* <div>
-                        {hotel.rooms.map(e => (
-                            <div>
-                                <p>{e}</p>
-                            </div>
-                        ))}
-                    </div> */}
                 </Infos>
             </Row>
+
+            <Rooms id={id}>
+
+            </Rooms>
+
+
             <Carousel>
                 <div>
                     <BedRooms src="https://monparisjoli.com/wp-content/uploads/2016/02/56697034.jpg" />
-                    <p className="legend">Chambre 1</p>
+                    <p className="legend">Chambre basique</p>
                 </div>
                 <div>
                     <BedRooms src="https://lh3.googleusercontent.com/proxy/OcjEEKJJhHtiZTWy0VnhhXxmGW3tvZGLcyg6S5Y8oyxL--0L0acMLJOliclmgIW0nzHm3uC94GMn6ipY3uKKuZ9KxxvLyt6maAewKkTxZ9NUHbKpBxCYUaAfkEo6KssoQ8vSxRt4XhxOgbJfKK89YS8L1O58XrVwC8vIfpkrr-5VJKxmyeZ-2zP1HaLAvxpV53zf8vEKcg" />
-                    <p className="legend">Legend 2</p>
+                    <p className="legend">Lit</p>
                 </div>
                 <div>
-                    <BedRooms src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6spDMA6lFbkRt4GYkNUtOhRYdMgMB8ge3Yg&usqp=CAU" />
-                    <p className="legend">Legend 3</p>
+                    <BedRooms src="https://i.pinimg.com/736x/f3/7d/be/f37dbe026fd1f10cefe8642ae400633f.jpg" />
+                    <p className="legend">Chambre luxueuse</p>
                 </div>
             </Carousel>
         </>

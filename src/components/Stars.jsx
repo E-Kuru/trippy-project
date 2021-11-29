@@ -31,7 +31,7 @@ const Stars = (props) => {
                 </div>}
             {props.hotel.stars === 5 &&
                 <div>
-                    <Stared><Etoiles src={star} /></Stared><Stared><Etoiles src={star} /></Stared><Stared><Etoiles src={star} /></Stared><Stared><Etoiles src={star} /></Stared><Stared><Etoiles src={star} /></Stared>
+                    <Stared><Etoiles src={star} /> <Etoiles src={star} /> <Etoiles src={star} /> <Etoiles src={star} /> <Etoiles src={star} /></Stared>
                 </div>}
 
         </div>
