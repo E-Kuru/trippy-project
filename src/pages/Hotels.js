@@ -14,6 +14,12 @@ import rome from '../assets/rome.png'
 import newYork from '../assets/new-york.png'
 
 const Hotels = () => {
+
+    const size = {
+        mobileM: '375px',
+        tablet: '768px',
+        laptop: '1024px',
+    }
     
     const {city} = useParams()
     
