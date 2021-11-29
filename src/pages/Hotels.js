@@ -139,6 +139,7 @@ const Hotels = () => {
         fetch (`https://trippy-konexio.herokuapp.com/api/hotels/city/${city}?page=3`)
         .then(res => res.json())
         .then(res => setHotels(res))
+        localStorage.setItem('Favs', JSON.stringify(HotelFav));
     },[])
     
     const handleFetchClick = (page) => {
