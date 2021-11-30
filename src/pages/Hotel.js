@@ -3,11 +3,9 @@ import styled from 'styled-components';
 import Nav from '../components/Nav'
 import { createGlobalStyle } from 'styled-components';
 import { useParams } from 'react-router'
-import { Carousel } from 'react-responsive-carousel'
 import Stars from '../components/Stars';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 
-import { FaCity } from 'react-icons/fa';
 import Icon from '../components/Icon';
 
 
