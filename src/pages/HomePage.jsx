@@ -9,7 +9,6 @@ import parisImg from '../assets/paris.png'
 import niceImg from '../assets/nice.png'
 import romeImg from '../assets/rome.png'
 import newYorkImg from '../assets/new-york.png'
-import { useEffect , useState } from 'react';
 
 const HeadSection = styled.div`
     *{
@@ -46,8 +45,6 @@ const HeadDiv = styled.div `
         font-weight : lighter  
         
     }
-
-
 `
 
 const CitiesSection = styled.div `

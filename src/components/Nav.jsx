@@ -12,24 +12,58 @@ function Nav() {
     align-items : center;
 
     img{
-        width : 12%
+        width : 12%;
     }
 
     nav{
+        margin-right : 2%;
         display : flex;
         justify-content : space-around;
-       
-    }
+        }
 
     a{
         color : white;
-        font-size : larger;
+        font-size : 24px;
         text-decoration : none;
     }
 
     a:hover{
-        text-decoration : underline
+        text-decoration : underline;
     }
+
+    @media(max-width : 780px){
+        nav{
+            a{
+                font-size : 20px;
+            }
+        }
+        
+        img{
+            width : 20%;
+        }
+
+    }
+
+    @media(max-width : 380px){
+        img{
+            width : 28%;
+        }
+
+        nav{
+            a{
+                font-size : 15px;
+            }
+        }
+    }
+
+    @media(max-width : 320px){
+        nav{
+            a{
+                font-size : 12px;
+            }
+        }
+    }
+
 `
 
     return (
