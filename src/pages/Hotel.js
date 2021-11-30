@@ -5,6 +5,8 @@ import { createGlobalStyle } from 'styled-components';
 import { useParams } from 'react-router'
 import Stars from '../components/Stars';
 
+import CityMap from '../components/CityMap'
+import Markers from '../components/Markers'
 
 import Icon from '../components/Icon';
 import { Link } from 'react-router-dom';
@@ -150,7 +152,16 @@ const IconAlign = styled.ul`
     padding: 5px;
 `
 
-const Hotel = props => {
+const MapContainer = styled.div`
+    margin-bottom : 2%;
+    height : 90vh;
+    display : flex;
+    justify-content : center;
+    align-items : center;
+`
+
+
+const Hotel = () => {
 
     const [hotel, setHotel] = useState([])
     const { id } = useParams()
@@ -166,6 +177,8 @@ const Hotel = props => {
     if (!hotel.commodities) {
         return <h1>Chargement</h1>
     }
+
+    console.log(hotel);
 
     return (
         <>
@@ -204,6 +217,18 @@ const Hotel = props => {
                     </UlContainer>
                 </Infos>
             </Row>
+            <MapContainer>
+            <CityMap center={hotel}>
+                    <Markers 
+                    key={hotel.name + hotel.location}
+                    color='#094BBC'
+                    lat={hotel.location.lat}
+                    lng={hotel.location.lon}
+                    price={hotel.price}
+                    />
+            </CityMap>
+        </MapContainer>
+
         </>
     );
 };

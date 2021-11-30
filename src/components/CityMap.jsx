@@ -15,8 +15,8 @@ function CityMap (props) {
             <GoogleMapReact
                 bootstrapURLKeys={{ key: "" }}
                 defaultCenter={{
-                    lat : props.center.lat,
-                    lng : props.center.lon
+                    lat : props.center.lat || props.center.location.lat,
+                    lng : props.center.lon || props.center.location.lon
                 }}
                 defaultZoom={14}>
                     {props.children}

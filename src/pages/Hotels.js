@@ -197,7 +197,6 @@ const Hotels = () => {
                                 <Title><h3>{hotel.name}</h3>
                                 <p>{hotel.stars} ★</p>
                                 <img src={london} alt="img" />
-                                {/* <img src={`https://trippy-konexio.herokuapp.com${hotel.pictures[0]}`} alt="img" /> */}
                                 <p>{hotel.address}</p>
                                 <p>{hotel.price}€</p> 
                                 </Title>   
