@@ -10,14 +10,34 @@ import { FaCity } from 'react-icons/fa';
 import Icon from '../components/Icon';
 
 import ReactDom from 'react-dom';
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-
-
+import { Link } from 'react-router-dom';
 
 const GlobalStyle = createGlobalStyle`
     body {
         background-color: #011b4f;
+    }
+    
+    button {
+        padding: 5px 10px;
+        border-radius : 10px;
+        width: 25%;
+        background-color: white;
+        border: none;
+        margin-top: 20px;
+        font-size: 20px;
+    }
+
+    button:hover {
+        background-color: black;
+    }
+
+    a {
+        text-decoration : none;
+        color: black;
+    }
+
+    a:hover {
+        color: white;
     }
 `
 
@@ -58,9 +78,12 @@ const Titles = styled.h3`
     color: white;
 `
 const ImageContainer = styled.div`
+    display: flex;
+    flex-direction : column;
     height: 100%;
     margin-left: 30px;
     margin-top: 0;
+    align-items: center;
 `
 
 const HostelPicture = styled.img`
@@ -101,9 +124,7 @@ const IconAlign = styled.ul`
     
 `
 
-const BedRooms = styled.img`
-    height: 600px;
-`
+
 
 const Hotel = props => {
 
@@ -129,6 +150,7 @@ const Hotel = props => {
             <Row>
                 <ImageContainer>
                     <HostelPicture src="https://www.orquebleue.fr/wp-content/uploads/2018/06/IMG_3479-1024x1024.jpg" alt="Hotel" />
+                    <button><Link to={`/rooms/${id}`}> Voir les chambres</Link></button>
                 </ImageContainer>
                 <Infos>
                     <Informations>
@@ -158,26 +180,6 @@ const Hotel = props => {
                     </UlContainer>
                 </Infos>
             </Row>
-
-            <Rooms id={id}>
-
-            </Rooms>
-
-
-            <Carousel>
-                <div>
-                    <BedRooms src="https://monparisjoli.com/wp-content/uploads/2016/02/56697034.jpg" />
-                    <p className="legend">Chambre basique</p>
-                </div>
-                <div>
-                    <BedRooms src="https://lh3.googleusercontent.com/proxy/OcjEEKJJhHtiZTWy0VnhhXxmGW3tvZGLcyg6S5Y8oyxL--0L0acMLJOliclmgIW0nzHm3uC94GMn6ipY3uKKuZ9KxxvLyt6maAewKkTxZ9NUHbKpBxCYUaAfkEo6KssoQ8vSxRt4XhxOgbJfKK89YS8L1O58XrVwC8vIfpkrr-5VJKxmyeZ-2zP1HaLAvxpV53zf8vEKcg" />
-                    <p className="legend">Lit</p>
-                </div>
-                <div>
-                    <BedRooms src="https://i.pinimg.com/736x/f3/7d/be/f37dbe026fd1f10cefe8642ae400633f.jpg" />
-                    <p className="legend">Chambre luxueuse</p>
-                </div>
-            </Carousel>
         </>
     );
 };
