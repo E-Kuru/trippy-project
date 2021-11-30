@@ -91,7 +91,7 @@ const HostelPicture = styled.img`
 
     @media(max-width : 380px){
         margin : 30px 0 0 20px;
-        width 340px;
+        width 300px;
     }
 
     @media(min-width : 1024px){
