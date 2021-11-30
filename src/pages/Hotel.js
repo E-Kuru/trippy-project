@@ -41,60 +41,89 @@ const GlobalStyle = createGlobalStyle`
 const Row = styled.div`
     display: flex;
     flex-direction: row;
-    margin-bottom: 20px;
+
+    @media(max-width : 780px){
+        flex-direction : column;
+    }
+
+    @media(max-width : 1024px){
+        flex-direction : column;
+    }
+
 `
 
 const Infos = styled.div`
-    background-color: #011b4f;
+    background-color: #ffff;
     width : 30%;
-    margin: 2% auto 0 auto ;
+    margin: 2% auto 2% auto ;
     display: flex;
     flex-direction: column;
-    border: 1px white solid;
-    box-shadow : 4px 2px 3px white;
+    border: 2px #0E3D71 solid;
+    box-shadow : 4px 4px 3px #0E3D71;
     border-radius : 5%;
-    color : white;
+    color : #011b4f;
+
+    @media(max-width : 780px){
+        margin-bottom : 2%;
+        width : 80%;
+    }
+
+    @media(max-width : 1024px){
+        margin : 2% 2% 0 9%;
+        width : 80%;
+    }
 `
 
 const Informations = styled.div`
     padding-bottom : 20px;
-    border-bottom : 1px solid white;
+    border-bottom : 1px solid #0E3D71;
     width: 100%;
     height: 100%;
     text-align : center;
 `
 
 const H1 = styled.h1`
-    color: white;
+    color : #011b4f;
     text-align: center;
 
 `
 
 const Titles = styled.h3`
     margin: 10px 0;
-    color: white;
+    color : #011b4f;
 `
 const ImageContainer = styled.div`
     display: flex;
     flex-direction : column;
     height: 100%;
-    margin-left: 30px;
     margin-top: 0;
-    align-items: center;
+    @media(max-width : 780px){
+        margin-left: 0px;
+    }
+
 `
 
 const HostelPicture = styled.img`
-height : 500px;
-width : 700px;
-border-radius : 5%;
-margin: 30px 0 0 40px;
+    height : 610px;
+    border-radius : 5%;
+    margin: 30px 0 0 40px;
+
+    @media(max-width : 430px){
+        margin : 30px 0px 0 20px;
+        width 340px;
+    }
+
+    @media(min-width : 1024px){
+        width : 900px;
+    }
+
 `
 
 const Comm = styled.div`
-display: flex;
-flex-direction:row;
-flex-wrap: wrap;
-align-items: center;
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    align-items: center;
 `
 
 const UlContainer = styled.div`
@@ -118,10 +147,7 @@ const UlContainer = styled.div`
 
 const IconAlign = styled.ul`
     padding: 5px;
-    
 `
-
-
 
 const Hotel = props => {
 
@@ -132,7 +158,7 @@ const Hotel = props => {
         fetch(`https://trippy-konexio.herokuapp.com/api/hotels/${id}`)
             .then(res => res.json())
             .then(res => setHotel(res.result))
-    }, [])
+    }, [id])
 
     console.log(hotel);
 

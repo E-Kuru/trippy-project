@@ -14,121 +14,137 @@ import rome from '../assets/rome.png'
 import newYork from '../assets/new-york.png'
 
 const Hotels = () => {
-
-    const size = {
-        mobileM: '375px',
-        tablet: '768px',
-        laptop: '1024px',
-    }
     
     const {city} = useParams()
     
     const HeadDiv = styled.div `
-    height : 88vh;
-    background : url('
-    ${city === 'london' && london}
-    ${city === 'paris' && paris}
-    ${city === 'rome' && rome}
-    ${city === 'new-york' && newYork}
-    ${city === 'nice' && nice}') no-repeat center/cover;
-    background-attachment: fixed;
-    color : white;
+        height : 88vh;
+        background : url('
+        ${city === 'london' && london}
+        ${city === 'paris' && paris}
+        ${city === 'rome' && rome}
+        ${city === 'new-york' && newYork}
+        ${city === 'nice' && nice}') no-repeat center/cover;
+        background-attachment: fixed;
+        color : white;
+        
+        display : flex;
+        
+        justify-content : flex-end;    
+        
+        text-align : center;
+        
+            span {
+                font-weight : bolder;
+                font-size: 4em;
+                text-shadow: 7px 1px 7px #0d3d70, 0 0 1em #0d3d70;
+                font-weight : 200; 
+        }
+        
+        h2{
+            margin : 2% 8% 0 0;
+            font-size : 40px; 
+            font-weight : lighter  
+        }
+
+        @media(max-width : 430px){
+            h2{
+                margin : 2% auto 0 auto;
+                text-align : center ;
+                font-size : 25px;
+            }
+        }
     
-    display : flex;
-    
-    justify-content : flex-end;    
-    
-    text-align : center;
-    
-        span {
-            font-weight : bolder;
-            font-size: 4em;
-            text-shadow: 7px 1px 7px #0d3d70, 0 0 1em #0d3d70;
-            font-weight : 200; 
-    }
-    
-    h2{
-        margin : 2% 8% 0 0;
-        font-size : 40px; 
-        font-weight : lighter  
-    }
     `  
     
     const H1 = styled.h1 `
-    margin-bottom : 2%; 
-    text-align : center;
+        margin-bottom : 2%; 
+        text-align : center;
     `
     
     const AllCards = styled.div`
-    direction : rtl;
-    border-bottom : 1px solid black;
-    border-top : 1px solid black;
-    height : 80vh;
-    overflow : scroll;
-    display : flex;
-    flex-wrap : wrap;
-    justify-content : space-around;
-    background-color : #0E3D71;
-    ::-webkit-scrollbar {
-        direction:ltr;
-        height: 4px;
-        width: 20px;
-    }
-    ::-webkit-scrollbar-thumb:vertical{
-        background: #ffff;
-        border-radius: 10px;
-    }
-    a{
-        text-decoration : none;
-    }
+        direction : rtl;
+        border-bottom : 1px solid black;
+        border-top : 1px solid black;
+        height : 80vh;
+        overflow : scroll;
+        display : flex;
+        flex-wrap : wrap;
+        justify-content : space-around;
+        background-color : #0E3D71;
+        ::-webkit-scrollbar {
+            direction:ltr;
+            height: 4px;
+            width: 20px;
+        }
+        ::-webkit-scrollbar-thumb:vertical{
+            background: #ffff;
+            border-radius: 10px;
+        }
+        a{
+            text-decoration : none;
+        }
     `
     const Card = styled.div`
     
-    background-color : #ffff;
+        background-color : #ffff;
+        
+        border-radius: 3px;
+        font-weight: bold;
+        margin: 2% 0;
+        text-align: center;
+        width: 40%;
+        height: 480px;
+        img{
+            width : 80%;
+            height : 210px;
+        }
+        button{
+            color : white;
+            background-color : #E61818;
+            border-radius : 50px;
+            width : 25%;
+            height : 48px;
+            font-weight : bolder;
+        }
+
+        @media(max-width : 780px){
+            width : 80%;
+        }
+
+        @media(max-width : 430px){
+            button{
+                width : 35%;
+                height : 40px;
+            }
+            width : 95%;
+        }
     
-    border-radius: 3px;
-    font-weight: bold;
-    margin: 2% 0;
-      text-align: center;
-      width: 40%;
-      height: 480px;
-      img{
-          width : 80%;
-          height : 210px;
-      }
-      button{
-          color : white;
-          background-color : #E61818;
-          border-radius : 50px;
-          width : 25%;
-          height : 48px;
-          font-weight : bolder;
-      }
       `
       const Title = styled.div`
-      color: black;
+        color: black;
       `
       const MapContainer = styled.div`
-      margin-bottom : 2%;
-      height : 90vh;
-      display : flex;
-      justify-content : center;
-        align-items : center;
+        margin-bottom : 2%;
+        height : 90vh;
+        display : flex;
+        justify-content : center;
+            align-items : center;
       `
       const ButtonGroup = styled.div`
-      display: flex;
-      justify-content: center;
+        display: flex;
+        justify-content: center;
 
-      button{
-        background-color: #0d3d70;
-        color: white;
-        font-size: 20px;
-        padding: 10px 20px;
-        border-radius: 3px;
-        margin: 10px;
-        cursor: pointer;
-        margin-right: 5px;  
-    }
+        button{
+            background-color: #0d3d70;
+            color: white;
+            font-size: 20px;
+            padding: 10px 20px;
+            border-radius: 3px;
+            margin: 10px;
+            cursor: pointer;
+            margin-right: 5px;  
+        }
     `
     
     const [hotels, setHotels] = useState([])
@@ -139,8 +155,7 @@ const Hotels = () => {
         fetch (`https://trippy-konexio.herokuapp.com/api/hotels/city/${city}?page=3`)
         .then(res => res.json())
         .then(res => setHotels(res))
-        localStorage.setItem('Favs', JSON.stringify(HotelFav));
-    },[])
+    },[city])
     
     const handleFetchClick = (page) => {
         fetch (`https://trippy-konexio.herokuapp.com/api/hotels/city/${city}?page=${page}`)

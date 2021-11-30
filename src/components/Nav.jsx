@@ -12,26 +12,63 @@ function Nav() {
     align-items : center;
 
     img{
-        width : 12%
+        width : 12%;
     }
 
     nav{
+        margin-right : 2%;
         display : flex;
         justify-content : space-around;
-        width 30%;
+        }
+        // width 30%;
     }
 
     a{
+        margin-right : 4%;
         color : white;
-        font-size : larger;
+        font-size : 24px;
         text-decoration : none;
     }
 
     a:hover{
-        color : #FEAD33;
+         color : #FEAD33;
     }
-`
 
+    @media(max-width : 780px){
+        nav{
+            a{
+                font-size : 20px;
+            }
+        }
+        
+        img{
+            width : 20%;
+        }
+
+    }
+
+    @media(max-width : 430px){
+        img{
+            width : 28%;
+        }
+
+        nav{
+            a{
+                margin-right : 2%;
+                font-size : 14px;
+            }
+        }
+    }
+
+    @media(max-width : 320px){
+        nav{
+            a{
+                font-size : 12px;
+            }
+        }
+    }
+
+`
     return (
         <>
             <Header>

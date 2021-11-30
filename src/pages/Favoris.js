@@ -12,6 +12,12 @@ const HeadFav = styled.div `
         font-size : 45px;
     }
 
+    @media(max-width : 380px){
+        h1{
+            font-size : 24px;
+        }
+    }
+
     button{
         color : white;
         background-color : #000000;
@@ -59,6 +65,25 @@ const Card = styled.div`
         margin-bottom : 2%;
         font-weight : bolder;
     }
+
+        @media(max-width : 780px){
+            width : 80%;
+        }
+
+        @media(max-width : 380px){
+
+            h1{
+                display : none;
+            }
+
+            width : 90%;
+
+            button {
+                height : 40px;
+                width : 40%;
+            }
+        }
+
   `
 
 function Favoris() {
@@ -87,11 +112,11 @@ function Favoris() {
             setFavs(Data)
         })
 
-    },[])
+    },[AllFavs])
 
     const handleDeleteFav = id =>{
 
-        const newArray = AllFavs.filter(e => e != id)
+        const newArray = AllFavs.filter(e => e !== id)
         setAllfavs(newArray)
         localStorage.setItem('Favs', JSON.stringify(newArray))
 
