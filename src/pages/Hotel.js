@@ -4,16 +4,26 @@ import Nav from '../components/Nav'
 import { createGlobalStyle } from 'styled-components';
 import { useParams } from 'react-router'
 import Stars from '../components/Stars';
-import 'react-responsive-carousel/lib/styles/carousel.min.css'
+
 
 import Icon from '../components/Icon';
+import { Link } from 'react-router-dom';
 
 const GlobalStyle = createGlobalStyle`
-    body {
-        background-repeat: no-repeat;
-        background-size : 100% 100%;
-        height: 100vh;
-        background-attachment: fixed;
+    
+    button {
+        padding: 5px 10px;
+        border-radius : 10px;
+        width: 25%;
+        background-color: white;
+        border: none;
+        margin-top: 20px;
+        font-size: 20px;
+    }
+
+    a {
+        text-decoration : none;
+        color: black;
     }
 `
 
@@ -72,10 +82,24 @@ const Titles = styled.h3`
     color : #011b4f;
 `
 const ImageContainer = styled.div`
+    display: flex;
+    flex-direction : column;
+    align-items : center;
     height: 100%;
     margin-top: 0;
     @media(max-width : 780px){
         margin-left: 0px;
+    }
+
+    button{
+        height : 40px;
+        background-color : #011b4f;
+        a{
+            color : white;  
+        }
+        a:hover{
+            color : #FEAD33;
+        }
     }
 
 `
@@ -93,7 +117,6 @@ const HostelPicture = styled.img`
     @media(min-width : 1024px){
         width : 900px;
     }
-
 `
 
 const Comm = styled.div`
@@ -150,7 +173,8 @@ const Hotel = props => {
             <Row>
                 <ImageContainer>
                     <HostelPicture src="https://www.orquebleue.fr/wp-content/uploads/2018/06/IMG_3479-1024x1024.jpg" alt="Hotel" />
-                </ImageContainer> 
+                    <button><Link to={`/rooms/${id}`}> Voir les chambres</Link></button>
+                </ImageContainer>
                 <Infos>
                     <Informations>
                         <H1>{hotel.name}</H1>
