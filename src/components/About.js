@@ -21,6 +21,10 @@ p{
     margin-left : 20%;
 }
 
+@media(max-width : 430px){
+    margin-left : 15%;
+}
+
 `
 
 function About() {
