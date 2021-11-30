@@ -84,23 +84,23 @@ const ImageContainer = styled.div`
 `
 
 const HostelPicture = styled.img`
-height : 500px;
-width : 700px;
-border-radius : 5%;
-margin: 30px 0 0 40px;
+    height : 500px;
+    width : 70px;
+    border-radius : 5%;
+    margin: 30px 0 0 40px;
 
-@media(max-width : 430px){
-    width 370px;
-}
+    @media(max-width : 430px){
+        width 370px;
+    }
 
-@media(max-width : 380px){
-    margin : 30px 0 0 20px;
-    width 280px;
-}
+    @media(max-width : 380px){
+        margin : 30px 0 0 20px;
+        width 340px;
+    }
 
-@media(max-width : 1024px){
-    width : 950px;
-}
+    @media(min-width : 1024px){
+        width : 950px;
+    }
 
 `
 
