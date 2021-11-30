@@ -1,15 +1,10 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 import { Link } from "react-router-dom"
+import React, { useEffect, useState } from 'react';
 
-import Nav from '../components/Nav';
+import Nav from '../components/Nav'
 
 import headParallax from '../assets/head-parallax.png'
-import londonImg from '../assets/london.png'
-import parisImg from '../assets/paris.png'
-import niceImg from '../assets/nice.png'
-import romeImg from '../assets/rome.png'
-import newYorkImg from '../assets/new-york.png'
-import { useEffect , useState } from 'react';
 
 const HeadSection = styled.div`
     *{
@@ -46,27 +41,36 @@ const HeadDiv = styled.div `
         font-weight : lighter  
         
     }
-
+    @media(max-width : 430px){
+        h2{
+            margin : 4% 8% 0 10%;
+            font-size: 30px;
+        }
+    }
 
 `
 
 const CitiesSection = styled.div `
     margin-top : 1%;
-    height : 100vh;
+    height : 80vh;
     display : flex;
     justify-content : center;
     flex-wrap : wrap;
+
+    @media(max-width : 430px){
+        margin-top : 4%;
+        align-items : center;
+    }
 `
 
-const NewYork = styled.div `
+const CityCard = styled.div `
 
-    margin-right : 2%;
+    margin : 2% 0 0 1%;
     text-align : center;
-    height : 50%;
+    height : 60%;
     width : 40%;
-    // border : 2px solid black;
     div{
-        background : url('${newYorkImg}') no-repeat center/cover;
+        width : 100%;
         height : 80%;
     }
     a{
@@ -74,85 +78,25 @@ const NewYork = styled.div `
         color : black ;
         font-size : 25px;
     }
-`
-const Rome = styled.div `
+        @media(max-width : 430px){
+        width 80%;
+        margin : 0;
+        a{
+            font-size : 12px;
+        }
+    }
 
-    text-align : center;
-    height : 50%;
-    width : 40%;
-    // border : 2px solid black;
-    div{
-        background : url('${romeImg}') no-repeat center/cover;
-        height : 80%;
-    }
-    a{
-        text-decoration : none;
-        color : black ;
-        font-size : 25px;
-    }
-`
-
-const London = styled.div `
-
-    margin : 2% 0 0 1%;
-    text-align : center;
-    height : 40%;
-    width : 30%;
-    // border : 2px solid black;
-    div{
-        background : url('${londonImg}') no-repeat center/cover;
-        height : 80%;
-    }
-    a{
-        text-decoration : none;
-        color : black ;
-        font-size : 25px;
-    }
-`
-const Paris = styled.div `
-
-    margin : 2% 0 0 1%;
-    text-align : center;
-    height : 40%;
-    width : 30%;
-    // border : 2px solid black;
-    div{
-        background : url('${parisImg}') no-repeat center/cover;
-        height : 80%;
-    }
-    a{
-        text-decoration : none;
-        color : black ;
-        font-size : 25px;
-    }
-`
-const Nice = styled.div `
-
-    margin : 2% 0 0 1%;
-    text-align : center;
-    height : 40%;
-    width : 30%;
-    // border : 2px solid black;
-    div{
-        background : url('${niceImg}') no-repeat center/cover;
-        height : 80%;
-    }
-    a{
-        text-decoration : none;
-        color : black ;
-        font-size : 25px;
-    }
 `
 
 function HomePage() {
 
-    // const [image, setimage] = useState([])
+    const [image, setimage] = useState([])
 
-    // useEffect(() => {
-    //     fetch('https://trippy-konexio.herokuapp.com/api/home')
-    //     .then(res => res.json())
-    //     .then(res => setimage(res.cities))
-    // },[])
+    useEffect(() => {
+        fetch('https://trippy-konexio.herokuapp.com/api/home')
+        .then(res => res.json())
+        .then(res => setimage(res.cities))
+    },[])
 
     return (
         <>
@@ -165,49 +109,18 @@ function HomePage() {
             
                 <CitiesSection>
 
-                        <NewYork>
-                            <Link to='hotels/new-york'>
-                            <div></div>
-                            <h3>New York</h3>
-                            </Link>
-                        </NewYork>
-
-                        <Rome>
-                            <Link to='hotels/rome'>
-                            <div></div>
-                            <h3>Rome</h3>
-                            </Link>
-                        </Rome>
-
-                        <London>
-                            <Link to='hotels/london'>
-                            <div></div>
-                            <h3>London</h3>
-                            </Link>
-                        </London>
-
-                        <Paris>
-                            <Link to='hotels/paris'>
-                            <div></div>
-                            <h3>Paris</h3>
-                            </Link>
-                        </Paris>
-
-                        <Nice>
-                            <Link to='hotels/nice'>
-                            <div></div>
-                            <h3>Nice</h3>
-                            </Link>
-                        </Nice>
+                {image.map( e => (
+                    <CityCard>
+                        <Link to={`hotels/${e.slug}`}>
+                            <div style={{background : `url("https://trippy-konexio.herokuapp.com${e.source}") no-repeat center/cover` }}>
+                            </div>
+                            <p>{e.name}</p>
+                        </Link>
+                    </CityCard>
+                ))}
 
                 </CitiesSection>
 
-                {/* {image.map( e => (
-                    <div>
-                        <p>{e.name}</p>
-                        <img src={`https://trippy-konexio.herokuapp.com${e.source}`} alt="img" style={{width : '150px',height : '150px'}}/>
-                    </div>
-                ))} */}
         </>
     )
 }
