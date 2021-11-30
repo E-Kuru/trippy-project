@@ -86,12 +86,8 @@ const HostelPicture = styled.img`
     margin: 30px 0 0 40px;
 
     @media(max-width : 430px){
-        width 370px;
-    }
-
-    @media(max-width : 380px){
-        margin : 30px 0 0 20px;
-        width 300px;
+        margin : 30px 0px 0 20px;
+        width 340px;
     }
 
     @media(min-width : 1024px){
@@ -101,10 +97,10 @@ const HostelPicture = styled.img`
 `
 
 const Comm = styled.div`
-display: flex;
-flex-direction:row;
-flex-wrap: wrap;
-align-items: center;
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    align-items: center;
 `
 
 const UlContainer = styled.div`
@@ -128,7 +124,6 @@ const UlContainer = styled.div`
 
 const IconAlign = styled.ul`
     padding: 5px;
-    
 `
 
 const Hotel = props => {
