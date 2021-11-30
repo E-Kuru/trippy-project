@@ -53,7 +53,7 @@ const Rooms = props => {
         fetch(`https://trippy-konexio.herokuapp.com/api/hotels/${id}/rooms`)
             .then(res => res.json())
             .then(res => setRooms(res.results))
-    }, [])
+    }, [id])
 
     return (
         <>

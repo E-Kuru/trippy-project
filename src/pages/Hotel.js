@@ -5,14 +5,13 @@ import { createGlobalStyle } from 'styled-components';
 import { useParams } from 'react-router'
 import Stars from '../components/Stars';
 
+import CityMap from '../components/CityMap'
+import Markers from '../components/Markers'
 
 import Icon from '../components/Icon';
 import { Link } from 'react-router-dom';
 
 const GlobalStyle = createGlobalStyle`
-    body {
-        background-color: #011b4f;
-    }
     
     button {
         padding: 5px 10px;
@@ -22,10 +21,6 @@ const GlobalStyle = createGlobalStyle`
         border: none;
         margin-top: 20px;
         font-size: 20px;
-    }
-
-    button:hover {
-        background-color: black;
     }
 
     a {
@@ -95,10 +90,23 @@ const Titles = styled.h3`
 const ImageContainer = styled.div`
     display: flex;
     flex-direction : column;
+    align-items : center;
     height: 100%;
     margin-top: 0;
     @media(max-width : 780px){
         margin-left: 0px;
+    }
+
+    button{
+        margin-bottom : 2%;
+        height : 40px;
+        background-color : #011b4f;
+        a{
+            color : white;  
+        }
+        a:hover{
+            color : #FEAD33;
+        }
     }
 
 `
@@ -109,25 +117,20 @@ const HostelPicture = styled.img`
     margin: 30px 0 0 40px;
 
     @media(max-width : 430px){
-        width 370px;
-    }
-
-    @media(max-width : 380px){
-        margin : 30px 0 0 20px;
-        width 300px;
+        margin : 30px 0px 0 20px;
+        width 340px;
     }
 
     @media(min-width : 1024px){
         width : 900px;
     }
-
 `
 
 const Comm = styled.div`
-display: flex;
-flex-direction:row;
-flex-wrap: wrap;
-align-items: center;
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    align-items: center;
 `
 
 const UlContainer = styled.div`
@@ -151,10 +154,18 @@ const UlContainer = styled.div`
 
 const IconAlign = styled.ul`
     padding: 5px;
-    
 `
 
-const Hotel = props => {
+const MapContainer = styled.div`
+    margin-bottom : 2%;
+    height : 90vh;
+    display : flex;
+    justify-content : center;
+    align-items : center;
+`
+
+
+const Hotel = () => {
 
     const [hotel, setHotel] = useState([])
     const { id } = useParams()
@@ -170,6 +181,8 @@ const Hotel = props => {
     if (!hotel.commodities) {
         return <h1>Chargement</h1>
     }
+
+    console.log(hotel);
 
     return (
         <>
@@ -208,6 +221,18 @@ const Hotel = props => {
                     </UlContainer>
                 </Infos>
             </Row>
+            <MapContainer>
+            <CityMap center={hotel}>
+                    <Markers 
+                    key={hotel.name + hotel.location}
+                    color='#094BBC'
+                    lat={hotel.location.lat}
+                    lng={hotel.location.lon}
+                    price={hotel.price}
+                    />
+            </CityMap>
+        </MapContainer>
+
         </>
     );
 };
