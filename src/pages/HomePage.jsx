@@ -111,7 +111,7 @@ function HomePage() {
 
                 {image.map( e => (
                     <CityCard>
-                        <Link to='hotels/rome'>
+                        <Link to={`hotels/${e.slug}`}>
                             <div style={{background : `url("https://trippy-konexio.herokuapp.com${e.source}") no-repeat center/cover` }}>
                             </div>
                             <p>{e.name}</p>

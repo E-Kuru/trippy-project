@@ -46,6 +46,13 @@ const Hotels = () => {
             font-size : 40px; 
             font-weight : lighter  
         }
+
+        @media(max-width : 430px){
+            h2{
+                font-size : 30px;
+            }
+        }
+    
     `  
     
     const H1 = styled.h1 `
