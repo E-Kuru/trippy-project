@@ -10,9 +10,6 @@ import Icon from '../components/Icon';
 import { Link } from 'react-router-dom';
 
 const GlobalStyle = createGlobalStyle`
-    body {
-        background-color: #011b4f;
-    }
     
     button {
         padding: 5px 10px;
@@ -24,17 +21,9 @@ const GlobalStyle = createGlobalStyle`
         font-size: 20px;
     }
 
-    button:hover {
-        background-color: black;
-    }
-
     a {
         text-decoration : none;
         color: black;
-    }
-
-    a:hover {
-        color: white;
     }
 `
 
@@ -95,10 +84,22 @@ const Titles = styled.h3`
 const ImageContainer = styled.div`
     display: flex;
     flex-direction : column;
+    align-items : center;
     height: 100%;
     margin-top: 0;
     @media(max-width : 780px){
         margin-left: 0px;
+    }
+
+    button{
+        height : 40px;
+        background-color : #011b4f;
+        a{
+            color : white;  
+        }
+        a:hover{
+            color : #FEAD33;
+        }
     }
 
 `
@@ -116,7 +117,6 @@ const HostelPicture = styled.img`
     @media(min-width : 1024px){
         width : 900px;
     }
-
 `
 
 const Comm = styled.div`
