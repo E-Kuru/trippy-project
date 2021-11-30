@@ -14,6 +14,12 @@ import rome from '../assets/rome.png'
 import newYork from '../assets/new-york.png'
 
 const Hotels = () => {
+
+    const size = {
+        mobileM: '375px',
+        tablet: '768px',
+        laptop: '1024px',
+    }
     
     const {city} = useParams()
     
@@ -34,11 +40,11 @@ const Hotels = () => {
     
     text-align : center;
     
-    span {
-        font-weight : bolder;
-        font-size: 4em;
-        text-shadow: 10px 1px 2px #0d3d70, 0 0 1em #0d3d70, 0 0 0.2em #0d3d70;
-        font-weight : 200; 
+        span {
+            font-weight : bolder;
+            font-size: 4em;
+            text-shadow: 7px 1px 7px #0d3d70, 0 0 1em #0d3d70;
+            font-weight : 200; 
     }
     
     h2{
@@ -133,6 +139,7 @@ const Hotels = () => {
         fetch (`https://trippy-konexio.herokuapp.com/api/hotels/city/${city}?page=3`)
         .then(res => res.json())
         .then(res => setHotels(res))
+        localStorage.setItem('Favs', JSON.stringify(HotelFav));
     },[])
     
     const handleFetchClick = (page) => {

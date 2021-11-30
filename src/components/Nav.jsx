@@ -28,7 +28,7 @@ function Nav() {
     }
 
     a:hover{
-        text-decoration : underline
+        color : #FEAD33;
     }
 `
 

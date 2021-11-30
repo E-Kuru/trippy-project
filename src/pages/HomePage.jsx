@@ -9,6 +9,7 @@ import parisImg from '../assets/paris.png'
 import niceImg from '../assets/nice.png'
 import romeImg from '../assets/rome.png'
 import newYorkImg from '../assets/new-york.png'
+import { useEffect , useState } from 'react';
 
 const HeadSection = styled.div`
     *{
@@ -145,6 +146,14 @@ const Nice = styled.div `
 
 function HomePage() {
 
+    // const [image, setimage] = useState([])
+
+    // useEffect(() => {
+    //     fetch('https://trippy-konexio.herokuapp.com/api/home')
+    //     .then(res => res.json())
+    //     .then(res => setimage(res.cities))
+    // },[])
+
     return (
         <>
             <HeadSection>
@@ -192,6 +201,13 @@ function HomePage() {
                         </Nice>
 
                 </CitiesSection>
+
+                {/* {image.map( e => (
+                    <div>
+                        <p>{e.name}</p>
+                        <img src={`https://trippy-konexio.herokuapp.com${e.source}`} alt="img" style={{width : '150px',height : '150px'}}/>
+                    </div>
+                ))} */}
         </>
     )
 }
