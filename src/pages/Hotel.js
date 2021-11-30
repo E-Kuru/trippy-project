@@ -25,6 +25,10 @@ const GlobalStyle = createGlobalStyle`
 const Row = styled.div`
     display: flex;
     flex-direction: row;
+    @media(max-width : 780px){
+        flex-direction : column;
+    }
+
 `
 
 const Infos = styled.div`
@@ -37,6 +41,12 @@ const Infos = styled.div`
     box-shadow : 4px 2px 3px white;
     border-radius : 5%;
     color : white;
+
+    @media(max-width : 780px){
+        margin-bottom : 2%;
+        width : 80%;
+    }
+
 `
 
 const Informations = styled.div`
@@ -59,8 +69,11 @@ const Titles = styled.h3`
 `
 const ImageContainer = styled.div`
     height: 100%;
-    margin-left: 30px;
     margin-top: 0;
+    @media(max-width : 780px){
+        margin-left: 0px;
+    }
+
 `
 
 const HostelPicture = styled.img`
@@ -101,11 +114,6 @@ const IconAlign = styled.ul`
     
 `
 
-const IconItem = styled.div`
-    
-    
-`
-
 const Hotel = props => {
 
     const [hotel, setHotel] = useState([])
@@ -122,8 +130,6 @@ const Hotel = props => {
     if (!hotel.commodities) {
         return <h1>Chargement</h1>
     }
-
-    
 
     return (
         <>
@@ -152,9 +158,9 @@ const Hotel = props => {
                                     <IconAlign>
                                         <Icon comodity={e}></Icon>
                                     </IconAlign>
-                                    <IconItem>
+                                    <div>
                                         <p>{e}</p>
-                                    </IconItem>
+                                    </div>
                                 </Comm>
                             ))}
                         </div>
