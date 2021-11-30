@@ -37,7 +37,7 @@ const Row = styled.div`
 const Infos = styled.div`
     background-color: #011b4f;
     width : 30%;
-    margin: 2% auto 0 auto ;
+    margin: 2% auto 2% auto ;
     display: flex;
     flex-direction: column;
     border: 1px white solid;
