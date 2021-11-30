@@ -49,7 +49,9 @@ const Hotels = () => {
 
         @media(max-width : 430px){
             h2{
-                font-size : 30px;
+                margin : 2% auto 0 auto;
+                text-align : center ;
+                font-size : 25px;
             }
         }
     
