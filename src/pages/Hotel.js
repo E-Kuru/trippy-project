@@ -92,6 +92,7 @@ const ImageContainer = styled.div`
     }
 
     button{
+        margin-bottom : 2%;
         height : 40px;
         background-color : #011b4f;
         a{
