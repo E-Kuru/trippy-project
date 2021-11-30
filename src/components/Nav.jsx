@@ -20,6 +20,8 @@ function Nav() {
         display : flex;
         justify-content : space-around;
         }
+        width 30%;
+    }
 
     a{
         color : white;
@@ -28,7 +30,7 @@ function Nav() {
     }
 
     a:hover{
-        text-decoration : underline;
+         color : #FEAD33;
     }
 
     @media(max-width : 780px){
@@ -71,9 +73,9 @@ function Nav() {
             <Header>
                 <img src={logo} alt="img" />
                 <nav>
-                    <Link to='/'href="">Home&emsp; </Link>
-                    <Link to='/'href="">Countries&emsp; </Link>
-                    <Link to='/favorites'href="">Favorites&emsp;</Link>
+                    <Link to='/'href="">Home</Link>
+                    <Link to='/'href="">Countries</Link>
+                    <Link to='/favorites'href="">Favorites</Link>
                     <Link to='/About'>About</Link>
                 </nav>
             </Header>
