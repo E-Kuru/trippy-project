@@ -45,6 +45,13 @@ const HeadDiv = styled.div `
         font-weight : lighter  
         
     }
+    @media(max-width : 430px){
+        h2{
+            margin : 4% 8% 0 10%;
+            font-size: 30px;
+        }
+    }
+
 `
 
 const CitiesSection = styled.div `
@@ -53,6 +60,11 @@ const CitiesSection = styled.div `
     display : flex;
     justify-content : center;
     flex-wrap : wrap;
+
+    @media(max-width : 380px){
+        margin-top : 4%;
+        align-items : center;
+    }
 `
 
 const NewYork = styled.div `
@@ -71,6 +83,15 @@ const NewYork = styled.div `
         color : black ;
         font-size : 25px;
     }
+
+    @media(max-width : 380px){
+        width 80%;
+        margin : 0;
+        a{
+            font-size : 12px;
+        }
+    }
+
 `
 const Rome = styled.div `
 
@@ -87,6 +108,15 @@ const Rome = styled.div `
         color : black ;
         font-size : 25px;
     }
+
+        @media(max-width : 380px){
+        width 80%;
+        margin : 0;
+        a{
+            font-size : 12px;
+        }
+    }
+
 `
 
 const London = styled.div `
@@ -105,6 +135,15 @@ const London = styled.div `
         color : black ;
         font-size : 25px;
     }
+
+        @media(max-width : 380px){
+        width 80%;
+        margin : 0;
+        a{
+            font-size : 12px;
+        }
+    }
+
 `
 const Paris = styled.div `
 
@@ -122,6 +161,15 @@ const Paris = styled.div `
         color : black ;
         font-size : 25px;
     }
+
+        @media(max-width : 380px){
+        width 80%;
+        margin : 0;
+        a{
+            font-size : 12px;
+        }
+    }
+
 `
 const Nice = styled.div `
 
@@ -139,6 +187,15 @@ const Nice = styled.div `
         color : black ;
         font-size : 25px;
     }
+
+        @media(max-width : 380px){
+        width 80%;
+        margin : 0;
+        a{
+            font-size : 12px;
+        }
+    }
+
 `
 
 function HomePage() {

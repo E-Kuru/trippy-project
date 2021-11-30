@@ -20,10 +20,11 @@ function Nav() {
         display : flex;
         justify-content : space-around;
         }
-        width 30%;
+        // width 30%;
     }
 
     a{
+        margin-right : 4%;
         color : white;
         font-size : 24px;
         text-decoration : none;
@@ -46,14 +47,15 @@ function Nav() {
 
     }
 
-    @media(max-width : 380px){
+    @media(max-width : 430px){
         img{
             width : 28%;
         }
 
         nav{
             a{
-                font-size : 15px;
+                margin-right : 2%;
+                font-size : 14px;
             }
         }
     }
@@ -67,7 +69,6 @@ function Nav() {
     }
 
 `
-
     return (
         <>
             <Header>

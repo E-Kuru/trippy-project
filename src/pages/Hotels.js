@@ -107,6 +107,14 @@ const Hotels = () => {
         @media(max-width : 780px){
             width : 80%;
         }
+
+        @media(max-width : 430px){
+            button{
+                width : 35%;
+                height : 40px;
+            }
+            width : 95%;
+        }
     
       `
       const Title = styled.div`

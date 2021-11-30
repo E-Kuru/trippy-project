@@ -25,7 +25,12 @@ const GlobalStyle = createGlobalStyle`
 const Row = styled.div`
     display: flex;
     flex-direction: row;
+
     @media(max-width : 780px){
+        flex-direction : column;
+    }
+
+    @media(max-width : 1024px){
         flex-direction : column;
     }
 
@@ -47,6 +52,10 @@ const Infos = styled.div`
         width : 80%;
     }
 
+    @media(max-width : 1024px){
+        margin-bottom : 2%;
+        width : 80%;
+    }
 `
 
 const Informations = styled.div`
@@ -81,6 +90,20 @@ height : 500px;
 width : 700px;
 border-radius : 5%;
 margin: 30px 0 0 40px;
+
+@media(max-width : 430px){
+    width 370px;
+}
+
+@media(max-width : 380px){
+    margin : 30px 0 0 20px;
+    width 280px;
+}
+
+@media(max-width : 1024px){
+    width : 950px;
+}
+
 `
 
 const Comm = styled.div`
