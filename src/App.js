@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import HomePage from './pages/HomePage';
 import Hotels from './pages/Hotels';
 import Hotel from './pages/Hotel';
-import Rooms from "./components/Rooms";
+import Rooms from "./pages/Rooms";
 import NotFound from './components/NotFound'
 import Favoris from './pages/Favoris'
 import About from './components/About'

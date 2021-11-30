@@ -2,13 +2,11 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useParams } from 'react-router'
 import styled, { createGlobalStyle } from 'styled-components';
-import { GlobalStyleComponent } from 'styled-components';
 
-import Nav from './Nav';
+import Nav from '../components/Nav';
 
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import Hotel from '../pages/Hotel';
 
 const GlobalStyle = createGlobalStyle`
     body {
@@ -22,7 +20,6 @@ const GlobalStyle = createGlobalStyle`
     }
 
 `
-
 const Bedrooms = styled.div`
     color: white;
     flex-wrap: wrap;
@@ -58,13 +55,10 @@ const Rooms = props => {
             .then(res => setRooms(res.results))
     }, [])
 
-
-
     return (
         <>
             <GlobalStyle />
             <Nav />
-
             <h1> Chambres Disponibles </h1>
             <Bedrooms>
                 {rooms.map(e => (

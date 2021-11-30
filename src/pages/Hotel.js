@@ -4,12 +4,9 @@ import Nav from '../components/Nav'
 import { createGlobalStyle } from 'styled-components';
 import { useParams } from 'react-router'
 import Stars from '../components/Stars';
-import Rooms from '../components/Rooms';
 
-import { FaCity } from 'react-icons/fa';
+
 import Icon from '../components/Icon';
-
-import ReactDom from 'react-dom';
 import { Link } from 'react-router-dom';
 
 const GlobalStyle = createGlobalStyle`
