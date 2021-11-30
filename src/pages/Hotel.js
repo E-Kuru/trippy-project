@@ -8,11 +8,8 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'
 
 import Icon from '../components/Icon';
 
-
-
 const GlobalStyle = createGlobalStyle`
     body {
-        background-image: url("https://cdn.radiofrance.fr/s3/cruiser-production/2020/11/bcbd126f-f452-4e07-bb89-9d3b8b74db4b/600x337_bleu.jpg");
         background-repeat: no-repeat;
         background-size : 100% 100%;
         height: 100vh;
@@ -35,15 +32,15 @@ const Row = styled.div`
 `
 
 const Infos = styled.div`
-    background-color: #011b4f;
+    background-color: #ffff;
     width : 30%;
     margin: 2% auto 2% auto ;
     display: flex;
     flex-direction: column;
-    border: 1px white solid;
-    box-shadow : 4px 2px 3px white;
+    border: 2px #0E3D71 solid;
+    box-shadow : 4px 4px 3px #0E3D71;
     border-radius : 5%;
-    color : white;
+    color : #011b4f;
 
     @media(max-width : 780px){
         margin-bottom : 2%;
@@ -51,28 +48,28 @@ const Infos = styled.div`
     }
 
     @media(max-width : 1024px){
-        margin-bottom : 2%;
+        margin : 2% 2% 0 9%;
         width : 80%;
     }
 `
 
 const Informations = styled.div`
     padding-bottom : 20px;
-    border-bottom : 1px solid white;
+    border-bottom : 1px solid #0E3D71;
     width: 100%;
     height: 100%;
     text-align : center;
 `
 
 const H1 = styled.h1`
-    color: white;
+    color : #011b4f;
     text-align: center;
 
 `
 
 const Titles = styled.h3`
     margin: 10px 0;
-    color: white;
+    color : #011b4f;
 `
 const ImageContainer = styled.div`
     height: 100%;
@@ -84,8 +81,7 @@ const ImageContainer = styled.div`
 `
 
 const HostelPicture = styled.img`
-    height : 500px;
-    width : 70px;
+    height : 610px;
     border-radius : 5%;
     margin: 30px 0 0 40px;
 
@@ -99,7 +95,7 @@ const HostelPicture = styled.img`
     }
 
     @media(min-width : 1024px){
-        width : 950px;
+        width : 900px;
     }
 
 `
