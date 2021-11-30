@@ -14,11 +14,6 @@ import rome from '../assets/rome.png'
 import newYork from '../assets/new-york.png'
 
 const Hotels = () => {
-
-    const size = {
-        mobileM: '375px',
-        tablet: '768px',
-    }
     
     const {city} = useParams()
     
@@ -151,7 +146,7 @@ const Hotels = () => {
         fetch (`https://trippy-konexio.herokuapp.com/api/hotels/city/${city}?page=3`)
         .then(res => res.json())
         .then(res => setHotels(res))
-    },[])
+    },[city])
     
     const handleFetchClick = (page) => {
         fetch (`https://trippy-konexio.herokuapp.com/api/hotels/city/${city}?page=${page}`)

@@ -112,11 +112,11 @@ function Favoris() {
             setFavs(Data)
         })
 
-    },[])
+    },[AllFavs])
 
     const handleDeleteFav = id =>{
 
-        const newArray = AllFavs.filter(e => e != id)
+        const newArray = AllFavs.filter(e => e !== id)
         setAllfavs(newArray)
         localStorage.setItem('Favs', JSON.stringify(newArray))
 
